@@ -1,6 +1,6 @@
 package com.maiquan.aladdin_order.domain;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 import java.util.Date;
 
 public class Order implements Serializable{
