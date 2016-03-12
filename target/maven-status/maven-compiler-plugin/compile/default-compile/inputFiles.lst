@@ -6,6 +6,9 @@ C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_order\serv
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_comment\service\ICommentRestService.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_shopcar\domain\ShopCar.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\domain\Product.java
+C:\Users\hsf\workspace\aladdin_base\src\main\java\com\aladdin\user\entity\WxUser.java
+C:\Users\hsf\workspace\aladdin_base\src\main\java\com\aladdin\interaction\wx\service\WxInteractionService.java
+C:\Users\hsf\workspace\aladdin_base\src\main\java\com\aladdin\user\service\UserService.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_comment\vo\CommentVo.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_receadd\service\IAddressService.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_comment\service\ICommentService.java
@@ -13,10 +16,12 @@ C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\do
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_comment\service\ICommentVoService.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_receadd\domain\App.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_receadd\domain\CommonParam.java
+C:\Users\hsf\workspace\aladdin_base\src\main\java\com\aladdin\product\category\vo\ProductCategoryTreeVo.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\domain\ProductAttr.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_order\domain\Order.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\service\IProductVoService.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_comment\domain\CommentImg.java
+C:\Users\hsf\workspace\aladdin_base\src\main\java\com\aladdin\product\category\entity\ProductCategory.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_comment\domain\CommonParam.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\domain\ProductAttrValue.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\service\IProductService.java
@@ -31,7 +36,9 @@ C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_comment\do
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_shopcar\domain\ShopCarProduct.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_supplier\domain\Supplier.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\domain\App.java
+C:\Users\hsf\workspace\aladdin_base\src\main\java\com\aladdin\product\category\service\ProductCategoryService.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_shopcar\service\IShopCarService.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\domain\CommonParam.java
+C:\Users\hsf\workspace\aladdin_base\src\main\java\com\aladdin\product\category\entity\ProductCategoryImg.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\vo\ProductVo.java
 C:\Users\hsf\workspace\aladdin_base\src\main\java\com\maiquan\aladdin_product\service\IProductSkuService.java
