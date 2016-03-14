@@ -86,4 +86,8 @@ public interface IProductService {
 	 * @return
 	 */
 	List<ProductAttrValue> getAttrValuesByAttrID(Integer attrID, String requestID);
+	
+	int collectProduct(String mqID, Integer productID, String requestID);
+	
+	int uncollectProduct(String mqID, Integer productID, String requestID);
 }
