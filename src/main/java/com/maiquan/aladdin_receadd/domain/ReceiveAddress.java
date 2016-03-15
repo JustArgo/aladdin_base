@@ -11,13 +11,13 @@ public class ReceiveAddress implements Serializable{
 
     private String mqID;
 
-    private String countryID;
+    private Integer countryID;
 
-    private String provinceID;
+    private Integer provinceID;
 
-    private String cityID;
+    private Integer cityID;
 
-    private String districtID;
+    private Integer districtID;
 
     private String address;
 
@@ -51,39 +51,41 @@ public class ReceiveAddress implements Serializable{
         this.mqID = mqID == null ? null : mqID.trim();
     }
 
-    public String getCountryID() {
-        return countryID;
-    }
+   
 
-    public void setCountryID(String countryID) {
-        this.countryID = countryID == null ? null : countryID.trim();
-    }
+    public Integer getCountryID() {
+		return countryID;
+	}
 
-    public String getProvinceID() {
-        return provinceID;
-    }
+	public void setCountryID(Integer countryID) {
+		this.countryID = countryID;
+	}
 
-    public void setProvinceID(String provinceID) {
-        this.provinceID = provinceID == null ? null : provinceID.trim();
-    }
+	public Integer getProvinceID() {
+		return provinceID;
+	}
 
-    public String getCityID() {
-        return cityID;
-    }
+	public void setProvinceID(Integer provinceID) {
+		this.provinceID = provinceID;
+	}
 
-    public void setCityID(String cityID) {
-        this.cityID = cityID == null ? null : cityID.trim();
-    }
+	public Integer getCityID() {
+		return cityID;
+	}
 
-    public String getDistrictID() {
-        return districtID;
-    }
+	public void setCityID(Integer cityID) {
+		this.cityID = cityID;
+	}
 
-    public void setDistrictID(String districtID) {
-        this.districtID = districtID == null ? null : districtID.trim();
-    }
+	public Integer getDistrictID() {
+		return districtID;
+	}
 
-    public String getAddress() {
+	public void setDistrictID(Integer districtID) {
+		this.districtID = districtID;
+	}
+
+	public String getAddress() {
         return address;
     }
 
