@@ -297,6 +297,10 @@ public class Order implements Serializable{
         this.createTime = createTime;
     }
 
+    public String getFullAddress(){
+    	return (this.province!=null?this.province:"")+(this.city!=null?this.city:"")+(this.district!=null?this.district:"")+(this.address!=null?this.address:"");
+    }
+    
 	@Override
 	public String toString() {
 		return "Order [ID=" + ID + ", parentID=" + parentID + ", parentCode="
