@@ -54,8 +54,8 @@ public interface AccountService {
 	long getTotalWithdraw(String requestId, String mqId);
 
 	/**
-	 * 获取用户资金信息：用户可用余额（remainingSum）、用户冻结余额（frozenSum）、用户累计收入（totalEaring）、用户已提现金额
-	 * （totalWithdraw）
+	 * 获取用户资金信息：用户可用余额（remainingSum）、用户冻结余额（frozenSum）、用户累计收入（totalEaring）、
+	 * 用户已提现金额 （totalWithdraw）
 	 * 
 	 * @param requestId
 	 *            请求标识
@@ -64,4 +64,13 @@ public interface AccountService {
 	 * @return 用户资金信息
 	 */
 	Map<String, Long> getAccountInfo(String requestId, String mqId);
+
+	/**
+	 * 申请提现
+	 * 
+	 * @param money
+	 *            提现金额（分）
+	 * @return 提交申请提现成功或失败信息
+	 */
+	Map<String, Object> applyWithDraw(Integer money);
 }
