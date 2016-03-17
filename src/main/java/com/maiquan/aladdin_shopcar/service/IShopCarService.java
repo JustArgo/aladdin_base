@@ -3,6 +3,9 @@ package com.maiquan.aladdin_shopcar.service;
 import java.util.List;
 import java.util.Map;
 
+import com.maiquan.aladdin_shopcar.domain.ShopCar;
+import com.maiquan.aladdin_shopcar.domain.ShopCarProduct;
+
 public interface IShopCarService {
 
 	/**
@@ -40,4 +43,29 @@ public interface IShopCarService {
 	 * @return
 	 */
 	int emptyShopCar(Integer userID, String requestID);
+
+	/**
+	 * 查找指定用户的购物车商品
+	 * @param mqID
+	 * @param requestID
+	 * @return
+	 */
+	List<ShopCarProduct> getShopCarProducts(String mqID, String requestID);
+
+	/**
+	 * 更新购物车商品
+	 * @param mqID
+	 * @param shopCarProduct
+	 * @param requestID
+	 * @return
+	 */
+	int updateShopCarProduct(String mqID, ShopCarProduct shopCarProduct, String requestID);
+	
+	/**
+	 * 查找购物车
+	 * @param mqID
+	 * @param requestID
+	 * @return
+	 */
+	ShopCar getShopCar(String mqID, String requestID);
 }

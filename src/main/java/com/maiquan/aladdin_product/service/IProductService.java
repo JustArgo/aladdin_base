@@ -90,4 +90,6 @@ public interface IProductService {
 	int collectProduct(String mqID, Integer productID, String requestID);
 	
 	int uncollectProduct(String mqID, Integer productID, String requestID);
+	
+	List<Product> getProductProductListByIDs(Integer[] ids, String requestID); 
 }
