@@ -1,6 +1,6 @@
 package com.maiquan.aladdin_order.domain;
 
-import java.io.Serializable; 
+import java.io.Serializable;
 import java.util.Date;
 
 public class Order implements Serializable{
@@ -64,6 +64,8 @@ public class Order implements Serializable{
     private Date payTime;
 
     private Date createTime;
+    
+    private String notes;
 
     public Integer getID() {
         return ID;
@@ -296,11 +298,19 @@ public class Order implements Serializable{
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+    
+    public String getNotes() {
+		return notes;
+	}
 
-    public String getFullAddress(){
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public String getFullAddress(){
     	return (this.province!=null?this.province:"")+(this.city!=null?this.city:"")+(this.district!=null?this.district:"")+(this.address!=null?this.address:"");
     }
-    
+
 	@Override
 	public String toString() {
 		return "Order [ID=" + ID + ", parentID=" + parentID + ", parentCode="
@@ -316,6 +326,6 @@ public class Order implements Serializable{
 				+ ", recMobile=" + recMobile + ", pFee=" + pFee + ", postFee="
 				+ postFee + ", pSum=" + pSum + ", orderSum=" + orderSum
 				+ ", paySum=" + paySum + ", confirmTime=" + confirmTime
-				+ ", payTime=" + payTime + ", createTime=" + createTime + "]";
+				+ ", payTime=" + payTime + ", createTime=" + createTime + ", notes=" + notes + "]";
 	}
 }

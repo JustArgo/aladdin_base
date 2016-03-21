@@ -56,17 +56,5 @@
 			<version>4.5</version>
 		</dependency>
 	</dependencies>
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<name>Releases</name>
-			<url>http://121.199.3.89:8081/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>Snapshots</name>
-			<url>http://121.199.3.89:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 
 </project>
