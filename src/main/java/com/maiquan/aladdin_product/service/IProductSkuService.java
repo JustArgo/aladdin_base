@@ -9,6 +9,14 @@ import com.maiquan.aladdin_product.domain.ProductSkuAttr;
 public interface IProductSkuService {
 
 	/**
+	 * 新增sku 
+	 * @param sku
+	 * @param requestID
+	 * @return 返回该sku的主键
+	 */
+	int addSku(ProductSku sku, String requestID);
+	
+	/**
 	 * 根据id 获得一个 商品sku
 	 * @param ID
 	 * @return
