@@ -4,15 +4,21 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class ProductSku implements Serializable{
-
-	private static final long serialVersionUID = -3558768887358933655L;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8176250238376111535L;
 
 	private Integer ID;
 
     private Integer uid;
 
+    private String key;
+
+    private String name;
+
     private Integer productID;
-    
+
     private Integer houseID;
 
     private Long skuPrice;
@@ -24,6 +30,12 @@ public class ProductSku implements Serializable{
     private Integer skuStock;
 
     private Date createTime;
+
+    private Integer sortOrder;
+
+    private Date updateTime;
+
+    private String status;
 
     public Integer getID() {
         return ID;
@@ -41,6 +53,22 @@ public class ProductSku implements Serializable{
         this.uid = uid;
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key == null ? null : key.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
     public Integer getProductID() {
         return productID;
     }
@@ -50,14 +78,14 @@ public class ProductSku implements Serializable{
     }
 
     public Integer getHouseID() {
-		return houseID;
-	}
+        return houseID;
+    }
 
-	public void setHouseID(Integer houseID) {
-		this.houseID = houseID;
-	}
+    public void setHouseID(Integer houseID) {
+        this.houseID = houseID;
+    }
 
-	public Long getSkuPrice() {
+    public Long getSkuPrice() {
         return skuPrice;
     }
 
@@ -96,13 +124,38 @@ public class ProductSku implements Serializable{
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
-    
+
+    public Integer getSortOrder() {
+        return sortOrder;
+    }
+
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
 	@Override
 	public String toString() {
-		return "ProductSku [ID=" + ID + ", uid=" + uid + ", productID="
-				+ productID + ", skuPrice=" + skuPrice + ", applyPrice="
+		return "ProductSku [ID=" + ID + ", uid=" + uid + ", key=" + key
+				+ ", name=" + name + ", productID=" + productID + ", houseID="
+				+ houseID + ", skuPrice=" + skuPrice + ", applyPrice="
 				+ applyPrice + ", skuImg=" + skuImg + ", skuStock=" + skuStock
-				+ ", createTime=" + createTime + "]";
+				+ ", createTime=" + createTime + ", sortOrder=" + sortOrder
+				+ ", updateTime=" + updateTime + ", status=" + status + "]";
 	}
-    
 }
