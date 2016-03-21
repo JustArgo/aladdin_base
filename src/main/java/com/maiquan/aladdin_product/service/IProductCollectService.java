@@ -6,6 +6,6 @@ import com.maiquan.aladdin_product.vo.ProductCollectVo;
 
 public interface IProductCollectService {
 
-	List<ProductCollectVo> getProductCollectListByIDs(String mqID, String requestID);
+	List<ProductCollectVo> getProductCollectListByMqID(String mqID, String requestID);
 	
 }

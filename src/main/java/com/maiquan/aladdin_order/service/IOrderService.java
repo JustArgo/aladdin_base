@@ -85,4 +85,5 @@ public interface IOrderService {
 	 * 为某个订单设置收货地址
 	 */
 	Order setReceAdd(String mqID, Order order, String requestID);
+	
 }

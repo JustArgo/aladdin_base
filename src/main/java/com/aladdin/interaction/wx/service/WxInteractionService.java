@@ -1,5 +1,7 @@
 package com.aladdin.interaction.wx.service;
 
+import java.util.Map;
+
 import me.chanjar.weixin.mp.bean.result.WxMpUser;
 
 /**
@@ -48,4 +50,16 @@ public interface WxInteractionService {
 	 * @return url
 	 */
 	String oauth2buildAuthorizationUrl(String scope, String state);
+	
+	/**
+	 * 统一下单
+	 * @return
+	 */
+	Map<String,String> unifiedOrder(Map<String,String> parameters);
+	
+	/**
+	 * 初始化 js配置
+	 * @return
+	 */
+	Map<String,String> getConfig();
 }
