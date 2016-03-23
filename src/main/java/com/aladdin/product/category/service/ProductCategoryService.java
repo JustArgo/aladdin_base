@@ -15,7 +15,9 @@ public interface ProductCategoryService {
 	/**
 	 * 列表
 	 * 
+	 * @param requestId
+	 *            请求标识
 	 * @return
 	 */
-	List<ProductCategoryTreeVo> findList();
+	List<ProductCategoryTreeVo> findList(String requestId);
 }
