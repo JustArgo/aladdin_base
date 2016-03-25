@@ -17,6 +17,11 @@ public interface IOrderService {
 	List<Order> getChildOrdersByParentOrderID(Integer orderID, String requestID);
 	
 	/**
+	 * 根据主订单orderCode  查找子订单列表
+	 */
+	List<Order> getChildOrdersByParentOrderCode(String orderCode, String requestID);
+	
+	/**
 	 * 新增订单
 	 */
 	int placeOrder(String mqID, Integer[] skuIDs, Integer[] buyNums, Long[] skuPrices, Long pFee, Long pSum, String invoiceName, String notes, String requestID);
