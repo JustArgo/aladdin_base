@@ -75,7 +75,7 @@ public interface UserService {
 		}
 
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
@@ -125,7 +125,7 @@ public interface UserService {
 		}
 
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
