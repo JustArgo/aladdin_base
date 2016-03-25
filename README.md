@@ -1,2 +1,2 @@
-# aladdin_base
-阿拉丁公用接口和domain
+# aladdin_base_lib
+公用接口服务
