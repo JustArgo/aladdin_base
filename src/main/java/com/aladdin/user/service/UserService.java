@@ -2,8 +2,6 @@ package com.aladdin.user.service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringJoiner;
-
 
 /**
  * 用户中心服务
@@ -17,6 +15,8 @@ public interface UserService {
 	 * 
 	 * @param requestId
 	 *            请求标识
+	 * @param upDistributionUserId
+	 *            上级
 	 * @param wxOpenId
 	 *            用户的微信openId
 	 * @param wxUnionId
@@ -25,7 +25,8 @@ public interface UserService {
 	 *            用户的微信昵称
 	 * @return
 	 */
-	Map<String, Object> createWx(String requestId, String wxOpenId, String wxUnionId, String wxNickname);
+	Map<String, Object> createWx(String requestId, String upDistributionUserId, String wxOpenId, String wxUnionId,
+			String wxNickname);
 
 	/**
 	 * 判断用户是否存在
@@ -37,6 +38,67 @@ public interface UserService {
 	 * @return
 	 */
 	Map<String, Object> existsUser(String requestId, String mqId);
+
+	/**
+	 * 根据微信openId查找用户
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param openId
+	 *            微信openId
+	 * @return
+	 */
+	Map<String, Object> findByOpenId(String requestId, String openId);
+
+	/**
+	 * 根据微信openId查找用户错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum FindByOpenIdErrcode {
+		/** 查询成功 */
+		e0("0", "查询成功"),
+		/** 查询失败 */
+		e210601("210601", "查询失败");
+		/** 代码 */
+		private String code;
+		/** 描述 */
+		private String msg;
+
+		private FindByOpenIdErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		/**
+		 * 返回json形式
+		 * 
+		 * @return
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			return map;
+		}
+	}
 
 	/**
 	 * 微信用户注册错误代码
@@ -75,7 +137,7 @@ public interface UserService {
 		}
 
 		/**
-		 * 返回map形式
+		 * 返回json形式
 		 * 
 		 * @return
 		 */
@@ -125,7 +187,7 @@ public interface UserService {
 		}
 
 		/**
-		 * 返回map形式
+		 * 返回json形式
 		 * 
 		 * @return
 		 */

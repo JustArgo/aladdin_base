@@ -68,9 +68,13 @@ public interface AccountService {
 	/**
 	 * 申请提现
 	 * 
+	 * @param requestId
+	 *            请求标识
 	 * @param money
 	 *            提现金额（分）
+	 * @param mqId
+	 *            麦圈用户id
 	 * @return 提交申请提现成功或失败信息
 	 */
-	Map<String, Object> applyWithDraw(Integer money);
+	Map<String, Object> applyWithDraw(String requestId, long money, String mqId);
 }
