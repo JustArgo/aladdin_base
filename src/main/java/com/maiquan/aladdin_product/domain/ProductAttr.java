@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class ProductAttr implements Serializable{
 
-	private static final long serialVersionUID = 6765949560256600767L;
+	private static final long serialVersionUID = -7087733839749384715L;
 
 	private Integer ID;
 
@@ -18,6 +18,8 @@ public class ProductAttr implements Serializable{
     private Integer uid;
 
     private Date createTime;
+
+    private Date updateTime;
 
     public Integer getID() {
         return ID;
@@ -67,13 +69,19 @@ public class ProductAttr implements Serializable{
         this.createTime = createTime;
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
 	@Override
 	public String toString() {
 		return "ProductAttr [ID=" + ID + ", productID=" + productID
 				+ ", attrName=" + attrName + ", sortOrder=" + sortOrder
-				+ ", uid=" + uid + ", createTime=" + createTime + "]";
+				+ ", uid=" + uid + ", createTime=" + createTime
+				+ ", updateTime=" + updateTime + "]";
 	}
-    
-    
-    
 }
