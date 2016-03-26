@@ -107,6 +107,14 @@ public class MapUtil {
 		 */
 		private Map<String, Object> data;
 
+		public Map<String, Object> getData() {
+			return data;
+		}
+
+		public void setData(Map<String, Object> data) {
+			this.data = data;
+		}
+
 		private MapData(Map<String, Object> data) {
 			this.data = data;
 		}
@@ -120,8 +128,8 @@ public class MapUtil {
 		 */
 		public String getString(String key) {
 			try {
-				Object value=data.get(key);
-				if (value==null) {
+				Object value = data.get(key);
+				if (value == null) {
 					return null;
 				}
 				return String.valueOf(value);
