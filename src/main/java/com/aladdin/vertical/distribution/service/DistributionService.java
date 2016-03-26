@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public interface DistributionService {
 	/**
-	 * 添加纵向分销关系，若upDistributionUserId为null，则distributionUserId表示用户成为顶级
+	 * 添加纵向分销关系，若upDistributionUserId为null或空字符串，则distributionUserId表示用户成为顶级
 	 * 
 	 * @param requestId
 	 *            请求标识
@@ -121,7 +121,6 @@ public interface DistributionService {
 			map.put("errmsg", msg);
 			return map;
 		}
-		
 	}
 
 	/**
