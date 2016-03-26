@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class ProductDetail implements Serializable{
 
-	private static final long serialVersionUID = 5202459648883514546L;
+	private static final long serialVersionUID = -2021305839547007847L;
 
 	private Integer ID;
 
@@ -14,6 +14,8 @@ public class ProductDetail implements Serializable{
     private Integer uid;
 
     private Date createTime;
+
+    private Date updateTime;
 
     private String productDesc;
 
@@ -49,6 +51,14 @@ public class ProductDetail implements Serializable{
         this.createTime = createTime;
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public String getProductDesc() {
         return productDesc;
     }
@@ -61,6 +71,7 @@ public class ProductDetail implements Serializable{
 	public String toString() {
 		return "ProductDetail [ID=" + ID + ", productID=" + productID
 				+ ", uid=" + uid + ", createTime=" + createTime
-				+ ", productDesc=" + productDesc + "]";
+				+ ", updateTime=" + updateTime + ", productDesc=" + productDesc
+				+ "]";
 	}
 }

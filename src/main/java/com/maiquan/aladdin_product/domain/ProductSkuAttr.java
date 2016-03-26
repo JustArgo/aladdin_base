@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class ProductSkuAttr implements Serializable{
-
-	private static final long serialVersionUID = 8928439421418024262L;
+	
+	private static final long serialVersionUID = -8018343504928751341L;
 
 	private Integer ID;
 
@@ -20,6 +20,8 @@ public class ProductSkuAttr implements Serializable{
     private Date createTime;
 
     private Integer uid;
+
+    private Date updateTime;
 
     public Integer getID() {
         return ID;
@@ -77,11 +79,19 @@ public class ProductSkuAttr implements Serializable{
         this.uid = uid;
     }
 
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
 	@Override
 	public String toString() {
 		return "ProductSkuAttr [ID=" + ID + ", skuID=" + skuID + ", attrID="
 				+ attrID + ", attrValueID=" + attrValueID + ", sortOrder="
 				+ sortOrder + ", createTime=" + createTime + ", uid=" + uid
-				+ "]";
+				+ ", updateTime=" + updateTime + "]";
 	}
 }

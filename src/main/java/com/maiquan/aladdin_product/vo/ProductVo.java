@@ -3,7 +3,6 @@ package com.maiquan.aladdin_product.vo;
 import java.io.Serializable;
 import java.util.List;
 
-import com.maiquan.aladdin_comment.domain.Comment;
 import com.maiquan.aladdin_comment.vo.CommentVo;
 import com.maiquan.aladdin_product.domain.Product;
 import com.maiquan.aladdin_product.domain.ProductSku;
@@ -13,6 +12,7 @@ public class ProductVo implements Serializable{
 	private static final long serialVersionUID = 2796643884761933555L;
 	
 	private Product product;
+	private String productImg;
 	private List<ProductSku> skus;
 	private CommentVo commentVo;
 	private Integer commentCount;
@@ -28,6 +28,12 @@ public class ProductVo implements Serializable{
 	}
 	public void setSkus(List<ProductSku> skus) {
 		this.skus = skus;
+	}
+	public String getProductImg() {
+		return productImg;
+	}
+	public void setProductImg(String productImg) {
+		this.productImg = productImg;
 	}
 	public CommentVo getCommentVo() {
 		return commentVo;
@@ -49,11 +55,9 @@ public class ProductVo implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "ProductVo [product=" + product + ", skus=" + skus
-				+ ", commentVo=" + commentVo + "]";
+		return "ProductVo [product=" + product + ", productImg=" + productImg
+				+ ", skus=" + skus + ", commentVo=" + commentVo
+				+ ", commentCount=" + commentCount + ", goodCommentRate="
+				+ goodCommentRate + "]";
 	}
-	
-	
-	
-	
 }
