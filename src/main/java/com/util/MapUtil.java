@@ -120,7 +120,11 @@ public class MapUtil {
 		 */
 		public String getString(String key) {
 			try {
-				return String.valueOf(data.get(key));
+				Object value=data.get(key);
+				if (value==null) {
+					return null;
+				}
+				return String.valueOf(value);
 			} catch (Exception e) {
 				return null;
 			}
