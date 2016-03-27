@@ -1,4 +1,4 @@
-package com.aladdin.system.service;
+package com.aladdin.data.dictionary.service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.Map;
  * @author JSC
  *
  */
-public interface SystemService {
+public interface DataDictionaryService {
 	/**
 	 * 获取系统配置
 	 * 
