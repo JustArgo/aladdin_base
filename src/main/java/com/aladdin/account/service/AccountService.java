@@ -62,7 +62,7 @@ public interface AccountService {
 	 *            请求标识
 	 * @param mqId
 	 *            麦圈用户id
-	 * @return 用户资金信息
+	 * @return
 	 */
 	Map<String, Object> getAccountInfo(String requestId, String mqId);
 
@@ -75,9 +75,70 @@ public interface AccountService {
 	 *            提现金额（分）
 	 * @param mqId
 	 *            麦圈用户id
-	 * @return 提交申请提现成功或失败信息
+	 * @return
 	 */
 	Map<String, Object> applyWithDraw(String requestId, long money, String mqId);
+
+	/**
+	 * 创建账户
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param mqId
+	 *            麦圈用户id
+	 * @return
+	 */
+	Map<String, Object> createAccount(String requestId, String mqId);
+
+	/**
+	 * 创建账户错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum CreateAccountErrcode {
+		/** 创建账户成功 */
+		e0("0", "创建账户成功"),
+		/** 创建账户失败 */
+		e210601("210601", "创建账户失败");
+		/** 代码 */
+		private String code;
+		/** 描述 */
+		private String msg;
+
+		private CreateAccountErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		/**
+		 * 返回map形式
+		 * 
+		 * @return
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			return map;
+		}
+	}
 
 	/**
 	 * 获取用户已提现金额错误代码
@@ -117,7 +178,7 @@ public interface AccountService {
 		}
 
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
@@ -167,7 +228,7 @@ public interface AccountService {
 		}
 
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
@@ -217,7 +278,7 @@ public interface AccountService {
 		}
 
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
@@ -267,7 +328,7 @@ public interface AccountService {
 		}
 
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
@@ -317,7 +378,7 @@ public interface AccountService {
 		}
 
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
@@ -371,7 +432,7 @@ public interface AccountService {
 		}
 
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
