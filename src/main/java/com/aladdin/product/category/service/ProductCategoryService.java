@@ -38,8 +38,8 @@ public interface ProductCategoryService {
 	public enum FindListErrcode {
 		/** 获取商品分类列表成功 */
 		e0("0", "获取商品分类列表成功"),
-		/** 获取商品分类列表成功 */
-		e210601("210601", "获取商品分类列表成功");
+		/** 获取商品分类列表失败 */
+		e210601("210601", "获取商品分类列表失败");
 		/** 代码 */
 		private String code;
 		/** 描述 */
