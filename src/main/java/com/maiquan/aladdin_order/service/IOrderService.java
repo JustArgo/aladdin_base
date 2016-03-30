@@ -91,4 +91,15 @@ public interface IOrderService {
 	 */
 	Order setReceAdd(String mqID, Order order, String requestID);
 	
+	/**
+	 * 申请退货
+	 * @return 返回退货记录的id
+	 */
+	int applyReturnGoods(String mqID, String orderCode, Integer orderProductID, Long refundFee, String refundReason, String refundDesc, String requestID);
+	
+	/**
+	 * 申请退款
+	 * @return 返回退款记录的id
+	 */
+	int applyReturnMoney(String mqID, String orderCode, Long refundFee, String refundReason, String refundDesc, String requestID);
 }
