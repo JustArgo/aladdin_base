@@ -88,4 +88,14 @@ public interface WxInteractionService {
 	 */
 	WxMpPayResult getPayResult(String requestId, String outTradeNo);
 
+	/**
+	 * 申请退款
+	 */
+	Map<String,String> refund(String requestId, Map<String,String> parameters);
+	
+	/**
+	 * 查询退款详情
+	 */
+	Map<String,String> getRefundResult(String requestId, Map<String,String> parameters);
+	
 }
