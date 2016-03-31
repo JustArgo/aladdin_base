@@ -31,6 +31,8 @@ public class GoodsReturn implements Serializable{
 
     private String returnReason;
 
+    private Long applySum;
+    
     private String returnDesc;
 
     private Long thirdReturnNo;
@@ -45,6 +47,19 @@ public class GoodsReturn implements Serializable{
 
     private Date createTime;
 
+    public enum ReturnReason{
+		SEV("七天无理由退货"),DES("收到商品破损"),QUA("商品质量问题"),SJ("少件/漏发"),TYF("退运费"),WAY("未按约定发货"),JMP("假冒品牌"),FP(""),REP("商品需要维修"),WRO("收到商品与描述不符");
+		
+		private String value;
+		private ReturnReason(String value){
+			this.value = value;
+		}
+		public String getValue(){
+			return this.value;
+		}
+		
+	}
+    
     public Integer getID() {
         return ID;
     }
@@ -140,8 +155,16 @@ public class GoodsReturn implements Serializable{
 	public void setReturnReason(String returnReason) {
 		this.returnReason = returnReason;
 	}
+	
+    public Long getApplySum() {
+		return applySum;
+	}
 
-    public String getReturnDesc() {
+	public void setApplySum(Long applySum) {
+		this.applySum = applySum;
+	}
+
+	public String getReturnDesc() {
         return returnDesc;
     }
 
@@ -205,10 +228,10 @@ public class GoodsReturn implements Serializable{
 				+ ", productID=" + productID + ", uid=" + uid + ", orderCode="
 				+ orderCode + ", status=" + status + ", auditStatus="
 				+ auditStatus + ", returnReason=" + returnReason
-				+ ", returnDesc=" + returnDesc + ", thirdReturnNo="
-				+ thirdReturnNo + ", realReturnSum=" + realReturnSum
-				+ ", returnTime=" + returnTime + ", auditTime=" + auditTime
-				+ ", applyTime=" + applyTime + ", createTime=" + createTime
-				+ "]";
+				+ ", applySum=" + applySum + ", returnDesc=" + returnDesc
+				+ ", thirdReturnNo=" + thirdReturnNo + ", realReturnSum="
+				+ realReturnSum + ", returnTime=" + returnTime + ", auditTime="
+				+ auditTime + ", applyTime=" + applyTime + ", createTime="
+				+ createTime + "]";
 	}
 }

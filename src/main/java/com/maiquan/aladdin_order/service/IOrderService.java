@@ -104,4 +104,24 @@ public interface IOrderService {
 	 * @return 返回退款记录的id
 	 */
 	MoneyReturn applyReturnMoney(String mqID, String orderCode, Long refundFee, String refundReason, String refundDesc, String requestID);
+
+	/**
+	 * 查找退货单
+	 */
+	GoodsReturn getGoodsReturnByID(Integer goodsReturnID, String requestID);
+	
+	/**
+	 * 查找退款单
+	 */
+	MoneyReturn getMoneyReturnByID(Integer moneyReturnID, String requestID);
+	
+	/**	
+	 * 用户提交退货申请 商家点击审核 且选择审核通过 或不通过
+     */
+	int auditReturnGoods(String requestID, Integer goodsReturnID, String auditStatus, Integer uid);
+
+	/**
+	 *用户提交退款申请 商家点击审核  且选择审核通过 或不通过
+     */
+	int auditReturnMoney(String requestID, Integer moneyReturnID, String auditStatus, Integer uid);
 }
