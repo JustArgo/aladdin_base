@@ -2,6 +2,8 @@ package com.maiquan.aladdin_order.service;
 
 import java.util.List;
 
+import com.maiquan.aladdin_order.domain.GoodsReturn;
+import com.maiquan.aladdin_order.domain.MoneyReturn;
 import com.maiquan.aladdin_order.domain.Order;
 
 public interface IOrderService {
@@ -95,11 +97,11 @@ public interface IOrderService {
 	 * 申请退货
 	 * @return 返回退货记录的id
 	 */
-	int applyReturnGoods(String mqID, String orderCode, Integer orderProductID, Long refundFee, String refundReason, String refundDesc, String requestID);
+	GoodsReturn applyReturnGoods(String mqID, String orderCode, Integer orderProductID, Long refundFee, String returnReason, String returnDesc, String requestID);
 	
 	/**
 	 * 申请退款
 	 * @return 返回退款记录的id
 	 */
-	int applyReturnMoney(String mqID, String orderCode, Long refundFee, String refundReason, String refundDesc, String requestID);
+	MoneyReturn applyReturnMoney(String mqID, String orderCode, Long refundFee, String refundReason, String refundDesc, String requestID);
 }
