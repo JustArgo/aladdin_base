@@ -118,7 +118,7 @@ public class MapUtil {
 	public static Class<?> getDataType() {
 		return dataInstance.getClass();
 	}
-	
+
 	/**
 	 * Map<String,Object>操作类
 	 * 
@@ -205,6 +205,26 @@ public class MapUtil {
 			} catch (Exception e) {
 				return null;
 			}
+		}
+
+		/**
+		 * 获得Object值
+		 * 
+		 * @param key
+		 *            键
+		 * @return
+		 */
+		public Object getObject(String key) {
+			return data.get("key");
+		}
+
+		/**
+		 * 获取错误描述
+		 * 
+		 * @return
+		 */
+		public String errorString() {
+			return getString("method") + " {errcode:" + getString("errcode") + ",errmsg:" + getString("errmsg") + "}";
 		}
 	}
 }
