@@ -79,22 +79,7 @@ public interface DistributionService {
 	 *            每页数量
 	 * @return
 	 */
-	Map<String, Object> findLevel1(String requestId, String mqId, int page, int pageSize);
-
-	/**
-	 * 查询查找第二下级
-	 * 
-	 * @param requestId
-	 *            请求标识
-	 * @param mqId
-	 *            麦圈用户id
-	 * @param page
-	 *            页数
-	 * @param pageSize
-	 *            每页数量
-	 * @return
-	 */
-	Map<String, Object> findLevel2(String requestId, String mqId, int page, int pageSize);
+	Map<String, Object> findMemberByLevelNum(String requestId, String mqId, int levelNum, int page, int pageSize);
 
 	/**
 	 * 查询第三级以下会员
@@ -109,7 +94,7 @@ public interface DistributionService {
 	 *            每页数量
 	 * @return
 	 */
-	Map<String, Object> findLevelFurther(String requestId, String mqId, int page, int pageSize);
+	Map<String, Object> findMemberBelowLevelNum(String requestId, String mqId, int levelNum, int page, int pageSize);
 
 	/**
 	 * 查找第一层、第二层和第三层以下会员数量
@@ -178,16 +163,16 @@ public interface DistributionService {
 	 * @author JSC
 	 *
 	 */
-	enum FindLevel1Errcode {
+	enum FindMemberByLevelNumErrcode {
 		e0("0", "查询成功"), e210601("210601", "查询失败");
 		private String code;
 		private String msg;
 		private String method;
 
-		private FindLevel1Errcode(String code, String msg) {
+		private FindMemberByLevelNumErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "DistributionService.findLevel1";
+			this.method = "DistributionService.findMemberByLevelNum";
 		}
 
 		public String getCode() {
@@ -235,16 +220,16 @@ public interface DistributionService {
 	 * @author JSC
 	 *
 	 */
-	enum FindLevel2Errcode {
+	enum FindMemberBelowLevelNumErrcode {
 		e0("0", "查询成功"), e210601("210601", "查询失败");
 		private String code;
 		private String msg;
 		private String method;
 
-		private FindLevel2Errcode(String code, String msg) {
+		private FindMemberBelowLevelNumErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "DistributionService.findLevel2";
+			this.method = "DistributionService.findMemberBelowLevelNum";
 		}
 
 		public String getCode() {
@@ -286,62 +271,6 @@ public interface DistributionService {
 
 	}
 
-	/**
-	 * 查询第三级以下会员错误代码
-	 * 
-	 * @author JSC
-	 *
-	 */
-	enum FindLevelFurtherErrcode {
-		e0("0", "查询成功"), e210601("210601", "查询失败");
-		private String code;
-		private String msg;
-		private String method;
-
-		private FindLevelFurtherErrcode(String code, String msg) {
-			this.code = code;
-			this.msg = msg;
-			this.method = "DistributionService.findLevelFurther";
-		}
-
-		public String getCode() {
-			return code;
-		}
-
-		public void setCode(String code) {
-			this.code = code;
-		}
-
-		public String getMsg() {
-			return msg;
-		}
-
-		public void setMsg(String msg) {
-			this.msg = msg;
-		}
-
-		public String getMethod() {
-			return method;
-		}
-
-		public void setMethod(String method) {
-			this.method = method;
-		}
-
-		/**
-		 * 返回map形式
-		 * 
-		 * @return
-		 */
-		public Map<String, Object> toMap() {
-			Map<String, Object> map = new HashMap<>();
-			map.put("errcode", code);
-			map.put("errmsg", msg);
-			map.put("method", method);
-			return map;
-		}
-
-	}
 
 	/**
 	 * 添加纵向分销关系接口错误代码
