@@ -112,19 +112,26 @@ public interface DistributionService {
 	Map<String, Object> findLevelFurther(String requestId, String mqId, int page, int pageSize);
 
 	/**
-	 * 查找直接下级错误代码
+	 * 查找第一层、第二层和第三层以下会员数量
 	 * 
-	 * @author JSC
-	 *
+	 * @param requestId
+	 *            请求标识
+	 * @param mqId
+	 *            麦圈用户id
+	 * @return
 	 */
-	enum FindLevel1Errcode {
+	Map<String, Object> findMemberCount(String requestId, String mqId);
+
+	enum FindMemberCountErrcode {
 		e0("0", "查询成功"), e210601("210601", "查询失败");
 		private String code;
 		private String msg;
+		private String method;
 
-		private FindLevel1Errcode(String code, String msg) {
+		private FindMemberCountErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DistributionService.findMemberCount";
 		}
 
 		public String getCode() {
@@ -143,6 +150,14 @@ public interface DistributionService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
 		 * 
@@ -152,6 +167,63 @@ public interface DistributionService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+	}
+
+	/**
+	 * 查找直接下级错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum FindLevel1Errcode {
+		e0("0", "查询成功"), e210601("210601", "查询失败");
+		private String code;
+		private String msg;
+		private String method;
+
+		private FindLevel1Errcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "DistributionService.findLevel1";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 * 
+		 * @return
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 
@@ -167,10 +239,12 @@ public interface DistributionService {
 		e0("0", "查询成功"), e210601("210601", "查询失败");
 		private String code;
 		private String msg;
+		private String method;
 
 		private FindLevel2Errcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DistributionService.findLevel2";
 		}
 
 		public String getCode() {
@@ -189,6 +263,14 @@ public interface DistributionService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
 		 * 
@@ -198,6 +280,7 @@ public interface DistributionService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 
@@ -213,10 +296,12 @@ public interface DistributionService {
 		e0("0", "查询成功"), e210601("210601", "查询失败");
 		private String code;
 		private String msg;
+		private String method;
 
 		private FindLevelFurtherErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DistributionService.findLevelFurther";
 		}
 
 		public String getCode() {
@@ -235,6 +320,14 @@ public interface DistributionService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
 		 * 
@@ -244,6 +337,7 @@ public interface DistributionService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 
@@ -271,10 +365,12 @@ public interface DistributionService {
 		private String code;
 		/** 错误信息 */
 		private String msg;
+		private String method;
 
 		private JoinDistributionErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DistributionService.joinDistribution";
 		}
 
 		public String getCode() {
@@ -293,6 +389,14 @@ public interface DistributionService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
 		 * 
@@ -302,6 +406,7 @@ public interface DistributionService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -321,10 +426,12 @@ public interface DistributionService {
 		private String code;
 		/** 错误信息 */
 		private String msg;
+		private String method;
 
 		private QueryDistributionSettingErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DistributionService.queryDistributionSetting";
 		}
 
 		public String getCode() {
@@ -343,6 +450,14 @@ public interface DistributionService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
 		 * 
@@ -352,6 +467,7 @@ public interface DistributionService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -371,10 +487,12 @@ public interface DistributionService {
 		private String code;
 		/** 错误信息 */
 		private String msg;
+		private String method;
 
 		private FindSalesErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DistributionService.findSales";
 		}
 
 		public String getCode() {
@@ -393,6 +511,14 @@ public interface DistributionService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
 		 * 
@@ -402,6 +528,7 @@ public interface DistributionService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -421,10 +548,12 @@ public interface DistributionService {
 		private String code;
 		/** 错误信息 */
 		private String msg;
+		private String method;
 
 		private FindMemberSalesErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DistributionService.findMemberSales";
 		}
 
 		public String getCode() {
@@ -443,6 +572,14 @@ public interface DistributionService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
 		 * 
@@ -452,6 +589,7 @@ public interface DistributionService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
