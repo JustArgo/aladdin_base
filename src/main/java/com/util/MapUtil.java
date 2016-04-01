@@ -215,7 +215,7 @@ public class MapUtil {
 		 * @return
 		 */
 		public Object getObject(String key) {
-			return data.get("key");
+			return data.get(key);
 		}
 
 		/**

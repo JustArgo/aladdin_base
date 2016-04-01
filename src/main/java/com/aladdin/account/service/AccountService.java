@@ -17,7 +17,7 @@ public interface AccountService {
 	 *            请求标识
 	 * @param mqId
 	 *            麦圈用户id
-	 * @return
+	 * 
 	 */
 	Map<String, Object> getRemainingSum(String requestId, String mqId);
 
@@ -28,7 +28,7 @@ public interface AccountService {
 	 *            请求标识
 	 * @param mqId
 	 *            麦圈用户id
-	 * @return
+	 * 
 	 */
 	Map<String, Object> getFrozenSum(String requestId, String mqId);
 
@@ -39,7 +39,7 @@ public interface AccountService {
 	 *            请求标识
 	 * @param mqId
 	 *            麦圈用户id
-	 * @return
+	 * 
 	 */
 	Map<String, Object> getTotalEaring(String requestId, String mqId);
 
@@ -50,7 +50,7 @@ public interface AccountService {
 	 *            请求标识
 	 * @param mqId
 	 *            麦圈用户id
-	 * @return
+	 * 
 	 */
 	Map<String, Object> getTotalWithdraw(String requestId, String mqId);
 
@@ -62,7 +62,7 @@ public interface AccountService {
 	 *            请求标识
 	 * @param mqId
 	 *            麦圈用户id
-	 * @return
+	 * 
 	 */
 	Map<String, Object> getAccountInfo(String requestId, String mqId);
 
@@ -75,7 +75,7 @@ public interface AccountService {
 	 *            提现金额（分）
 	 * @param mqId
 	 *            麦圈用户id
-	 * @return
+	 * 
 	 */
 	Map<String, Object> applyWithDraw(String requestId, long money, String mqId);
 
@@ -86,29 +86,49 @@ public interface AccountService {
 	 *            请求标识
 	 * @param mqId
 	 *            麦圈用户id
-	 * @return
+	 * 
 	 */
 	Map<String, Object> createAccount(String requestId, String mqId);
 
 	/**
-	 * 创建账户错误代码
+	 * 查找余额明细
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param mqId
+	 *            麦圈用户id
+	 * @param accountType
+	 *            账户类型
+	 * @param page
+	 *            页码
+	 * @param pageSize
+	 *            每页数量
+	 * 
+	 */
+	Map<String, Object> getAccountDetail(String requestId, String mqId, String accountType, int page, int pageSize);
+
+	/**
+	 * 获取余额明细错误代码
 	 * 
 	 * @author JSC
 	 *
 	 */
-	enum CreateAccountErrcode {
-		/** 创建账户成功 */
-		e0("0", "创建账户成功"),
-		/** 创建账户失败 */
-		e210601("210601", "创建账户失败");
+	enum GetAccountDetailErrcode {
+		/** 获取余额明细成功 */
+		e0("0", "获取余额明细成功"),
+		/** 获取余额明细失败 */
+		e210601("210601", "获取余额明细失败");
 		/** 代码 */
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
-		private CreateAccountErrcode(String code, String msg) {
+		private GetAccountDetailErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "AccountService.getAccountDetail";
 		}
 
 		public String getCode() {
@@ -127,15 +147,84 @@ public interface AccountService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
-		 * 
-		 * @return
 		 */
 		public Map<String, Object> toMap() {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+	}
+
+	/**
+	 * 创建账户错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum CreateAccountErrcode {
+		/** 创建账户成功 */
+		e0("0", "创建账户成功"),
+		/** 创建账户失败 */
+		e210601("210601", "创建账户失败");
+		/** 代码 */
+		private String code;
+		/** 描述 */
+		private String msg;
+		/** 方法 */
+		private String method;
+
+		private CreateAccountErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "AccountService.createAccount";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 * 
+		 * 
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -155,10 +244,13 @@ public interface AccountService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
 		private GetTotalWithdrawErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "AccountService.getTotalWithdraw";
 		}
 
 		public String getCode() {
@@ -177,15 +269,22 @@ public interface AccountService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
-		 * 
-		 * @return
 		 */
 		public Map<String, Object> toMap() {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -205,10 +304,13 @@ public interface AccountService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
 		private GetTotalEaringErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "AccountService.getTotalEaring";
 		}
 
 		public String getCode() {
@@ -227,15 +329,22 @@ public interface AccountService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
-		 * 
-		 * @return
 		 */
 		public Map<String, Object> toMap() {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -255,10 +364,13 @@ public interface AccountService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
 		private GetFrozenSumErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "AccountService.getFrozenSum";
 		}
 
 		public String getCode() {
@@ -277,15 +389,22 @@ public interface AccountService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
-		 * 
-		 * @return
 		 */
 		public Map<String, Object> toMap() {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -305,10 +424,13 @@ public interface AccountService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
 		private GetRemainingSumErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "AccountService.getRemainingSum";
 		}
 
 		public String getCode() {
@@ -327,15 +449,22 @@ public interface AccountService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
-		 * 
-		 * @return
 		 */
 		public Map<String, Object> toMap() {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -355,10 +484,13 @@ public interface AccountService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
 		private GetAccountInfoErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "AccountService.getAccountInfo";
 		}
 
 		public String getCode() {
@@ -377,15 +509,22 @@ public interface AccountService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
-		 * 
-		 * @return
 		 */
 		public Map<String, Object> toMap() {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -402,17 +541,20 @@ public interface AccountService {
 		/** 提现申请金额大于提现余额 */
 		e210601("210601", "提现申请金额大于提现余额"),
 		/** 提现金额为0 */
-		e210602("210602", "提现金额为0"),
+		e210602("210602", "提现金额小于等于0"),
 		/** 其他错误 */
 		e210604("210604", "其他错误");
 		/** 代码 */
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
 		private ApplyWithDrawErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "AccountService.applyWithDraw";
 		}
 
 		public String getCode() {
@@ -431,15 +573,22 @@ public interface AccountService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
-		 * 
-		 * @return
 		 */
 		public Map<String, Object> toMap() {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
