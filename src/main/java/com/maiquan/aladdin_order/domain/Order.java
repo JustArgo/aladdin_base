@@ -13,11 +13,17 @@ public class Order implements Serializable{
 
     private String parentCode;
 
+    private Integer supID;
+
     private String orderCode;
+
+    private String orderType;
 
     private String orderStatus;
 
     private String payStatus;
+
+    private String logistics;
 
     private String logisticsNum;
 
@@ -59,12 +65,16 @@ public class Order implements Serializable{
 
     private Long paySum;
 
+    private Date sendTime;
+
     private Date confirmTime;
 
     private Date payTime;
 
     private Date createTime;
-    
+
+    private String serviceNote;
+
     private String notes;
 
     public Integer getID() {
@@ -310,22 +320,90 @@ public class Order implements Serializable{
 	public String getFullAddress(){
     	return (this.province!=null?this.province:"")+(this.city!=null?this.city:"")+(this.district!=null?this.district:"")+(this.address!=null?this.address:"");
     }
+	
+	
+	public Integer getSupID() {
+		return supID;
+	}
+
+	public void setSupID(Integer supID) {
+		this.supID = supID;
+	}
+
+	public String getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+	}
+
+	public String getLogistics() {
+		return logistics;
+	}
+
+	public void setLogistics(String logistics) {
+		this.logistics = logistics;
+	}
+
+	public Date getSendTime() {
+		return sendTime;
+	}
+
+	public void setSendTime(Date sendTime) {
+		this.sendTime = sendTime;
+	}
+
+	public String getServiceNote() {
+		return serviceNote;
+	}
+
+	public void setServiceNote(String serviceNote) {
+		this.serviceNote = serviceNote;
+	}
 
 	@Override
-	public String toString() {
-		return "Order [ID=" + ID + ", parentID=" + parentID + ", parentCode="
-				+ parentCode + ", orderCode=" + orderCode + ", orderStatus="
-				+ orderStatus + ", payStatus=" + payStatus + ", logisticsNum="
-				+ logisticsNum + ", returnMoneyStatus=" + returnMoneyStatus
-				+ ", returnGoodsStatus=" + returnGoodsStatus
-				+ ", commentStatus=" + commentStatus + ", shippingStatus="
-				+ shippingStatus + ", platform=" + platform + ", mqID=" + mqID
-				+ ", invoiceName=" + invoiceName + ", country=" + country
-				+ ", province=" + province + ", city=" + city + ", district="
-				+ district + ", address=" + address + ", recName=" + recName
-				+ ", recMobile=" + recMobile + ", pFee=" + pFee + ", postFee="
-				+ postFee + ", pSum=" + pSum + ", orderSum=" + orderSum
-				+ ", paySum=" + paySum + ", confirmTime=" + confirmTime
-				+ ", payTime=" + payTime + ", createTime=" + createTime + ", notes=" + notes + "]";
-	}
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", ID=").append(ID);
+        sb.append(", parentID=").append(parentID);
+        sb.append(", parentCode=").append(parentCode);
+        sb.append(", supID=").append(supID);
+        sb.append(", orderCode=").append(orderCode);
+        sb.append(", orderType=").append(orderType);
+        sb.append(", orderStatus=").append(orderStatus);
+        sb.append(", payStatus=").append(payStatus);
+        sb.append(", logistics=").append(logistics);
+        sb.append(", logisticsNum=").append(logisticsNum);
+        sb.append(", returnMoneyStatus=").append(returnMoneyStatus);
+        sb.append(", returnGoodsStatus=").append(returnGoodsStatus);
+        sb.append(", commentStatus=").append(commentStatus);
+        sb.append(", shippingStatus=").append(shippingStatus);
+        sb.append(", platform=").append(platform);
+        sb.append(", mqID=").append(mqID);
+        sb.append(", invoiceName=").append(invoiceName);
+        sb.append(", country=").append(country);
+        sb.append(", province=").append(province);
+        sb.append(", city=").append(city);
+        sb.append(", district=").append(district);
+        sb.append(", address=").append(address);
+        sb.append(", recName=").append(recName);
+        sb.append(", recMobile=").append(recMobile);
+        sb.append(", pFee=").append(pFee);
+        sb.append(", postFee=").append(postFee);
+        sb.append(", pSum=").append(pSum);
+        sb.append(", orderSum=").append(orderSum);
+        sb.append(", paySum=").append(paySum);
+        sb.append(", sendTime=").append(sendTime);
+        sb.append(", confirmTime=").append(confirmTime);
+        sb.append(", payTime=").append(payTime);
+        sb.append(", createTime=").append(createTime);
+        sb.append(", serviceNote=").append(serviceNote);
+        sb.append(", notes=").append(notes);
+        sb.append("]");
+        return sb.toString();
+    }
 }

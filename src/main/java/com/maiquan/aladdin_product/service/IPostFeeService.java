@@ -12,5 +12,5 @@ public interface IPostFeeService {
 	/**
 	 * 根据商品id 查找其对应的运费模板 和模板类型   返回map的可以 分别为  freightTplID  freightType
 	 */
-	Map<String,Object> getProductFeight(Integer productID, String requestID);
+	Map<String,Object> getProductFreight(Integer productID, String requestID);
 }

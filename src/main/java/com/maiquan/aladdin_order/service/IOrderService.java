@@ -26,7 +26,7 @@ public interface IOrderService {
 	/**
 	 * 新增订单
 	 */
-	int placeOrder(String mqID, Integer[] skuIDs, Integer[] buyNums, Long[] skuPrices, Long pFee, Long pSum, String invoiceName, String notes, String requestID);
+	int placeOrder(String mqID, String orderType, Integer[] skuIDs, Integer[] buyNums, Long[] skuPrices, Long pFee, Long pSum, String invoiceName, String notes, String requestID);
 	
 	/**
 	 * 删除订单 
@@ -124,4 +124,12 @@ public interface IOrderService {
 	 *用户提交退款申请 商家点击审核  且选择审核通过 或不通过
      */
 	int auditReturnMoney(String requestID, Integer moneyReturnID, String auditStatus, Integer uid);
+	
+	/**
+	 * getGoodsReturnByReturnCode
+	 */
+	
+	/**
+	 * getMoneyReturnByReturnCode
+	 */
 }
