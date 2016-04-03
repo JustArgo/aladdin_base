@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 /**
@@ -18,6 +19,7 @@ import java.util.Set;
  *
  */
 public class MapUtil {
+	private static Map<String, Object> dataInstance = new HashMap<>();
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private static Set<String> BASE_TYPE = new HashSet<>();
 
@@ -42,11 +44,11 @@ public class MapUtil {
 	}
 
 	/**
-	 * 将实体对象转换为json,不支持Map和数组
+	 * 将实体对象转换为map,不支持Map和数组
 	 * 
 	 * @param obj
 	 *            对象
-	 * @return json
+	 * @return map
 	 */
 	public static Map<String, Object> toMap(Object obj) throws Exception {
 		if (obj == null) {
@@ -83,7 +85,7 @@ public class MapUtil {
 	}
 
 	/**
-	 * 将实体对象转换为json,不支持Map和数组
+	 * 将集合对象转换为map集合
 	 * 
 	 * @param obj
 	 *            对象
@@ -97,10 +99,32 @@ public class MapUtil {
 		return data;
 	}
 
+	/**
+	 * 获取MapData实例
+	 * 
+	 * @param data
+	 *            map数据
+	 * @return
+	 */
 	public static MapData newInstance(Map<String, Object> data) {
 		return new MapData(data);
 	};
 
+	/**
+	 * 获得Map<String,Object>类型
+	 * 
+	 * @return
+	 */
+	public static Class<?> getDataType() {
+		return dataInstance.getClass();
+	}
+
+	/**
+	 * Map<String,Object>操作类
+	 * 
+	 * @author JSC
+	 *
+	 */
 	public static class MapData {
 		/**
 		 * 数据
@@ -181,6 +205,26 @@ public class MapUtil {
 			} catch (Exception e) {
 				return null;
 			}
+		}
+
+		/**
+		 * 获得Object值
+		 * 
+		 * @param key
+		 *            键
+		 * @return
+		 */
+		public Object getObject(String key) {
+			return data.get(key);
+		}
+
+		/**
+		 * 获取错误描述
+		 * 
+		 * @return
+		 */
+		public String errorString() {
+			return getString("method") + " {errcode:" + getString("errcode") + ",errmsg:" + getString("errmsg") + "}";
 		}
 	}
 }

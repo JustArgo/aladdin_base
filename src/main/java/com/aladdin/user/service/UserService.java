@@ -1,6 +1,7 @@
 package com.aladdin.user.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -51,12 +52,17 @@ public interface UserService {
 	Map<String, Object> findByOpenId(String requestId, String openId);
 
 	/**
-	 * 根据微信openId查找用户错误代码
+	 * 根据麦圈集合查找用户
 	 * 
-	 * @author JSC
-	 *
+	 * @param requestId
+	 *            请求标识
+	 * @param mqIds
+	 *            麦圈集合
+	 * @return
 	 */
-	enum FindByOpenIdErrcode {
+	Map<String, Object> findByMqId(String requestId, List<String> mqIds);
+
+	enum FindByMqIdErrcode {
 		/** 查询成功 */
 		e0("0", "查询成功"),
 		/** 查询失败 */
@@ -65,10 +71,13 @@ public interface UserService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
-		private FindByOpenIdErrcode(String code, String msg) {
+		private FindByMqIdErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "UserService.findByMqId";
 		}
 
 		public String getCode() {
@@ -87,8 +96,16 @@ public interface UserService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
@@ -96,6 +113,69 @@ public interface UserService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+
+	}
+
+	/**
+	 * 根据微信openId查找用户错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum FindByOpenIdErrcode {
+		/** 查询成功 */
+		e0("0", "查询成功"),
+		/** 查询失败 */
+		e210601("210601", "查询失败");
+		/** 代码 */
+		private String code;
+		/** 描述 */
+		private String msg;
+		private String method;
+
+		private FindByOpenIdErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "UserService.findByOpenId";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 * 
+		 * @return
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -114,10 +194,12 @@ public interface UserService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		private String method;
 
 		private CreateWxErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "UserService.createWx";
 		}
 
 		public String getCode() {
@@ -136,8 +218,16 @@ public interface UserService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
@@ -145,6 +235,7 @@ public interface UserService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -164,10 +255,12 @@ public interface UserService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		private String method;
 
 		private ExistsUserErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "UserService.existsUser";
 		}
 
 		public String getCode() {
@@ -186,8 +279,16 @@ public interface UserService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
-		 * 返回json形式
+		 * 返回map形式
 		 * 
 		 * @return
 		 */
@@ -195,6 +296,7 @@ public interface UserService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}

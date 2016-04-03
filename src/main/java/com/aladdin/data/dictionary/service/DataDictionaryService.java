@@ -17,14 +17,14 @@ public interface DataDictionaryService {
 	 *            请求标识
 	 * @return
 	 */
-	Map<String, Object> getBaseConfigs();
+	Map<String, Object> getBaseConfigs(String requestId);
 
 	/**
 	 * 清除系统配置缓存
 	 * 
 	 * @return
 	 */
-	Map<String, Object> flush();
+	Map<String, Object> flush(String requestId);
 
 	/**
 	 * 根据配置Key查找配置
@@ -33,14 +33,14 @@ public interface DataDictionaryService {
 	 *            配置Key
 	 * @return
 	 */
-	Map<String, Object> getBaseConfigByConfigKey(String configKey);
+	Map<String, Object> getBaseConfigByConfigKey(String requestId,String configKey);
 
 	enum ConfigKey {
 		/** 金牌用户佣金比例 */
 		fxyq_gold_rate("FXYQ_GOLD_RATE", "金牌用户佣金比例"),
 		/** 渠道推广佣金比例 */
 		fxyq_chan_rate("FXYQ_CHAN_RATE", "渠道推广佣金比例"),
-		/** 消费自动升级*/
+		/** 消费自动升级 */
 		fxyq_gold_consume_update("FXYQ_GOLD_CONSUME_UPDATE", "消费自动升级"),
 		/** 关注自动升级 */
 		fxyq_gold_motion_update("FXYQ_GOLD_MOTION_UPDATE", "关注自动升级"),
@@ -108,10 +108,13 @@ public interface DataDictionaryService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
 		private GetBaseConfigByConfigKeyErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DataDictionaryService.getBaseConfigByConfigKey";
 		}
 
 		public String getCode() {
@@ -130,6 +133,14 @@ public interface DataDictionaryService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
 		 * 
@@ -139,6 +150,7 @@ public interface DataDictionaryService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -158,10 +170,13 @@ public interface DataDictionaryService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
 		private FlushErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DataDictionaryService.flush";
 		}
 
 		public String getCode() {
@@ -189,6 +204,7 @@ public interface DataDictionaryService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
@@ -207,10 +223,13 @@ public interface DataDictionaryService {
 		private String code;
 		/** 描述 */
 		private String msg;
+		/** 方法 */
+		private String method;
 
 		private GetBaseConfigErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
+			this.method = "DataDictionaryService.getBaseConfig";
 		}
 
 		public String getCode() {
@@ -229,6 +248,14 @@ public interface DataDictionaryService {
 			this.msg = msg;
 		}
 
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
 		/**
 		 * 返回map形式
 		 * 
@@ -238,6 +265,7 @@ public interface DataDictionaryService {
 			Map<String, Object> map = new HashMap<>();
 			map.put("errcode", code);
 			map.put("errmsg", msg);
+			map.put("method", method);
 			return map;
 		}
 	}
