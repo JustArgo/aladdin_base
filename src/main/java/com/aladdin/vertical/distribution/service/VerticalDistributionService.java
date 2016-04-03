@@ -9,7 +9,7 @@ import java.util.Map;
  * @author JSC
  *
  */
-public interface DistributionService {
+public interface VerticalDistributionService {
 	/**
 	 * 添加纵向分销关系，若upDistributionUserId为null或空字符串，则distributionUserId表示用户成为顶级
 	 * 
