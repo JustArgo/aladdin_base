@@ -87,9 +87,9 @@ public class MapUtil {
 	/**
 	 * 将集合对象转换为map集合
 	 * 
-	 * @param obj
-	 *            对象
-	 * @return json
+	 * @param c
+	 *            集合
+	 * @return map
 	 */
 	public static List<Map<String, Object>> toMap(Collection<?> c) throws Exception {
 		List<Map<String, Object>> data = new ArrayList<>();
@@ -224,7 +224,7 @@ public class MapUtil {
 		 * @return
 		 */
 		public String errorString() {
-			return getString("method") + " {errcode:" + getString("errcode") + ",errmsg:" + getString("errmsg") + "}";
+			return "{method:"+getString("method")+",errcode:" + getString("errcode") + ",errmsg:" + getString("errmsg") + "}";
 		}
 	}
 }

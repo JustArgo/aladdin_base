@@ -80,15 +80,17 @@ public interface AccountService {
 	Map<String, Object> applyWithDraw(String requestId, long money, String mqId);
 
 	/**
-	 * 创建账户
+	 * 分配佣金
 	 * 
 	 * @param requestId
 	 *            请求标识
+	 * @param money
+	 *            佣金
 	 * @param mqId
 	 *            麦圈用户id
 	 * 
 	 */
-	Map<String, Object> createAccount(String requestId, String mqId);
+	Map<String, Object> distributionReward(String requestId, long money, String mqId);
 
 	/**
 	 * 查找余额明细
@@ -106,6 +108,66 @@ public interface AccountService {
 	 * 
 	 */
 	Map<String, Object> getAccountDetail(String requestId, String mqId, String accountType, int page, int pageSize);
+
+	/**
+	 * 分配佣金错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum DistributionRewardErrcode {
+		/** 分配佣金成功 */
+		e0("0", "分配佣金成功"),
+		/** 分配佣金失败 */
+		e210601("210601", "分配佣金失败");
+		/** 代码 */
+		private String code;
+		/** 描述 */
+		private String msg;
+		/** 方法 */
+		private String method;
+
+		private DistributionRewardErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "AccountService.distributionReward";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+	}
 
 	/**
 	 * 获取余额明细错误代码
@@ -157,68 +219,6 @@ public interface AccountService {
 
 		/**
 		 * 返回map形式
-		 */
-		public Map<String, Object> toMap() {
-			Map<String, Object> map = new HashMap<>();
-			map.put("errcode", code);
-			map.put("errmsg", msg);
-			map.put("method", method);
-			return map;
-		}
-	}
-
-	/**
-	 * 创建账户错误代码
-	 * 
-	 * @author JSC
-	 *
-	 */
-	enum CreateAccountErrcode {
-		/** 创建账户成功 */
-		e0("0", "创建账户成功"),
-		/** 创建账户失败 */
-		e210601("210601", "创建账户失败");
-		/** 代码 */
-		private String code;
-		/** 描述 */
-		private String msg;
-		/** 方法 */
-		private String method;
-
-		private CreateAccountErrcode(String code, String msg) {
-			this.code = code;
-			this.msg = msg;
-			this.method = "AccountService.createAccount";
-		}
-
-		public String getCode() {
-			return code;
-		}
-
-		public void setCode(String code) {
-			this.code = code;
-		}
-
-		public String getMsg() {
-			return msg;
-		}
-
-		public void setMsg(String msg) {
-			this.msg = msg;
-		}
-
-		public String getMethod() {
-			return method;
-		}
-
-		public void setMethod(String method) {
-			this.method = method;
-		}
-
-		/**
-		 * 返回map形式
-		 * 
-		 * 
 		 */
 		public Map<String, Object> toMap() {
 			Map<String, Object> map = new HashMap<>();
