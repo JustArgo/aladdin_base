@@ -11,19 +11,6 @@ import java.util.Map;
  */
 public interface VerticalDistributionService {
 	/**
-	 * 添加纵向分销关系，若upDistributionUserId为null或空字符串，则distributionUserId表示用户成为顶级
-	 * 
-	 * @param requestId
-	 *            请求标识
-	 * @param upDistributionUserId
-	 *            邀请者标识(上级)
-	 * @param distributionUserId
-	 *            受邀请者标识(下级)
-	 * @return
-	 */
-	Map<String, Object> joinDistribution(String requestId, String upDistributionUserId, String distributionUserId);
-
-	/**
 	 * 查询上下级佣金设置
 	 * 
 	 * @param requestId
@@ -116,7 +103,7 @@ public interface VerticalDistributionService {
 		private FindMemberCountErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "DistributionService.findMemberCount";
+			this.method = "VerticalDistributionService.findMemberCount";
 		}
 
 		public String getCode() {
@@ -172,7 +159,7 @@ public interface VerticalDistributionService {
 		private FindMemberByLevelNumErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "DistributionService.findMemberByLevelNum";
+			this.method = "VerticalDistributionService.findMemberByLevelNum";
 		}
 
 		public String getCode() {
@@ -229,7 +216,7 @@ public interface VerticalDistributionService {
 		private FindMemberBelowLevelNumErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "DistributionService.findMemberBelowLevelNum";
+			this.method = "VerticalDistributionService.findMemberBelowLevelNum";
 		}
 
 		public String getCode() {
@@ -271,74 +258,6 @@ public interface VerticalDistributionService {
 
 	}
 
-
-	/**
-	 * 添加纵向分销关系接口错误代码
-	 * 
-	 * @author JSC
-	 *
-	 */
-	enum JoinDistributionErrcode {
-		/** 建立分销关系成功 */
-		e0("0", "建立分销关系成功"),
-		/** 建立分销关系失败，此用户已存在分销关系 */
-		e210601("210601", "建立分销关系失败，此用户已存在分销关系"),
-		/** 建立分销关系失败，上级用户不存在 */
-		e210602("210602", "建立分销关系失败，上级用户不存在"),
-		/** 建立分销关系失败，下级用户不存在 */
-		e210603("210603", "建立分销关系失败，下级用户不存在"),
-		/** 建立分销关系失败，其它错误 */
-		e210604("210604", "建立分销关系失败，其它错误");
-
-		/** 错误代码 */
-		private String code;
-		/** 错误信息 */
-		private String msg;
-		private String method;
-
-		private JoinDistributionErrcode(String code, String msg) {
-			this.code = code;
-			this.msg = msg;
-			this.method = "DistributionService.joinDistribution";
-		}
-
-		public String getCode() {
-			return code;
-		}
-
-		public void setCode(String code) {
-			this.code = code;
-		}
-
-		public String getMsg() {
-			return msg;
-		}
-
-		public void setMsg(String msg) {
-			this.msg = msg;
-		}
-
-		public String getMethod() {
-			return method;
-		}
-
-		public void setMethod(String method) {
-			this.method = method;
-		}
-
-		/**
-		 * 返回map形式
-		 * 
-		 * @return
-		 */
-		public Map<String, Object> toMap() {
-			Map<String, Object> map = new HashMap<>();
-			map.put("errcode", code);
-			map.put("errmsg", msg);
-			map.put("method", method);
-			return map;
-		}
-	}
 
 	/**
 	 * 查询上下级佣金设置接口错误代码
@@ -360,7 +279,7 @@ public interface VerticalDistributionService {
 		private QueryDistributionSettingErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "DistributionService.queryDistributionSetting";
+			this.method = "VerticalDistributionService.queryDistributionSetting";
 		}
 
 		public String getCode() {
@@ -421,7 +340,7 @@ public interface VerticalDistributionService {
 		private FindSalesErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "DistributionService.findSales";
+			this.method = "VerticalDistributionService.findSales";
 		}
 
 		public String getCode() {
@@ -482,7 +401,7 @@ public interface VerticalDistributionService {
 		private FindMemberSalesErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "DistributionService.findMemberSales";
+			this.method = "VerticalDistributionService.findMemberSales";
 		}
 
 		public String getCode() {
