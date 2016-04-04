@@ -1,4 +1,4 @@
-package com.maiquan.aladdin_comment.domain;
+package com.maiquan.common;
 
 import java.util.Map;
 

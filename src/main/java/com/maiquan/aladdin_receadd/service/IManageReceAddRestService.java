@@ -2,7 +2,8 @@ package com.maiquan.aladdin_receadd.service;
 
 import java.util.Map;
 
-import com.maiquan.aladdin_receadd.domain.CommonParam;
+import com.maiquan.common.CommonParam;
+
 
 public interface IManageReceAddRestService {
 

@@ -36,9 +36,9 @@ public class OrderProduct implements Serializable {
 
     private Long postPay;
 
-    private Long goldRate;
+    private Integer goldRate;
 
-    private Long channelRate;
+    private Integer channelRate;
 
     private Integer isSystemRate;
 
@@ -162,23 +162,23 @@ public class OrderProduct implements Serializable {
         this.postPay = postPay;
     }
 
-    public Long getGoldRate() {
-        return goldRate;
-    }
+    public Integer getGoldRate() {
+		return goldRate;
+	}
 
-    public void setGoldRate(Long goldRate) {
-        this.goldRate = goldRate;
-    }
+	public void setGoldRate(Integer goldRate) {
+		this.goldRate = goldRate;
+	}
 
-    public Long getChannelRate() {
-        return channelRate;
-    }
+	public Integer getChannelRate() {
+		return channelRate;
+	}
 
-    public void setChannelRate(Long channelRate) {
-        this.channelRate = channelRate;
-    }
+	public void setChannelRate(Integer channelRate) {
+		this.channelRate = channelRate;
+	}
 
-    public Integer getIsSystemRate() {
+	public Integer getIsSystemRate() {
         return isSystemRate;
     }
 

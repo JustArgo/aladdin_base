@@ -2,8 +2,7 @@ package com.maiquan.aladdin_comment.service;
 
 import java.util.Map;
 
-import com.maiquan.aladdin_comment.domain.CommonParam;
-
+import com.maiquan.common.CommonParam;
 
 public interface ICommentRestService {
 	

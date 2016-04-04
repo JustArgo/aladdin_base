@@ -114,9 +114,10 @@ public interface IProductService {
 	 * @param keyWord  关键字
 	 * @param startIndex  开始行
 	 * @param pageSize	      每一页数量
+	 * @param orderBy    如果orderBy=createTime 则按时间从大到小排   否则按价格 排  orderBy为asc或desc 
 	 * @return
 	 */
-	List<Map> selectByKeyWordWithPagination(String keyWord, Integer startIndex, Integer pageSize, String requestID);
+	List<Map> selectByKeyWordWithPagination(String keyWord, Integer startIndex, Integer pageSize, String orderBy, String requestID);
 
 	/**
 	 * 增加商品图片 
