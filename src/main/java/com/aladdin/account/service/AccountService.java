@@ -109,7 +109,7 @@ public interface AccountService {
 	 *            麦圈用户id
 	 * 
 	 */
-	Map<String, Object> verticalDistributionReward(String requestId, List<Map<String, Object>> param);
+	Map<String, Object> verticalDistributionToFrozensum(String requestId, List<Map<String, Object>> param);
 
 	/**
 	 * 余额支付
@@ -187,7 +187,7 @@ public interface AccountService {
 	 * @author JSC
 	 *
 	 */
-	enum VerticalDistributionRewardErrcode {
+	enum VerticalDistributionToFrozensumErrcode {
 		/** 分配佣金成功 */
 		e0("0", "分配佣金成功"),
 		/** 分配佣金失败 */
@@ -201,10 +201,10 @@ public interface AccountService {
 		/** 方法 */
 		private String method;
 
-		private VerticalDistributionRewardErrcode(String code, String msg) {
+		private VerticalDistributionToFrozensumErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "AccountService.distributionReward";
+			this.method = "AccountService.verticalDistributionToFrozensum";
 		}
 
 		public String getCode() {
