@@ -1,6 +1,7 @@
 package com.aladdin.account.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -80,17 +81,17 @@ public interface AccountService {
 	Map<String, Object> applyWithDraw(String requestId, long money, String mqId);
 
 	/**
-	 * 分配佣金
+	 * 金牌会员分佣，增加冻结余额
 	 * 
 	 * @param requestId
 	 *            请求标识
-	 * @param money
-	 *            佣金
+	 * @param param
+	 *            参数，每个map中存放着分佣历史表id（distributionListId）和佣金（money）
 	 * @param mqId
 	 *            麦圈用户id
 	 * 
 	 */
-	Map<String, Object> distributionReward(String requestId, long money, String mqId);
+	Map<String, Object> verticalDistributionReward(String requestId, List<Map<String, Object>> param, String mqId);
 
 	/**
 	 * 查找余额明细
@@ -110,12 +111,12 @@ public interface AccountService {
 	Map<String, Object> getAccountDetail(String requestId, String mqId, String accountType, int page, int pageSize);
 
 	/**
-	 * 分配佣金错误代码
+	 * 金牌会员分佣错误代码
 	 * 
 	 * @author JSC
 	 *
 	 */
-	enum DistributionRewardErrcode {
+	enum VerticalDistributionRewardErrcode {
 		/** 分配佣金成功 */
 		e0("0", "分配佣金成功"),
 		/** 分配佣金失败 */
@@ -127,7 +128,7 @@ public interface AccountService {
 		/** 方法 */
 		private String method;
 
-		private DistributionRewardErrcode(String code, String msg) {
+		private VerticalDistributionRewardErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "AccountService.distributionReward";
