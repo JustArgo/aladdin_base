@@ -3,6 +3,7 @@ package com.aladdin.account.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringJoiner;
 
 /**
  * 用户资金服务
@@ -81,19 +82,6 @@ public interface AccountService {
 	Map<String, Object> applyWithDraw(String requestId, long money, String mqId);
 
 	/**
-	 * 金牌会员分佣，增加冻结余额
-	 * 
-	 * @param requestId
-	 *            请求标识
-	 * @param param
-	 *            参数，每个map中存放着分佣历史表id（distributionListId）和佣金（money）
-	 * @param mqId
-	 *            麦圈用户id
-	 * 
-	 */
-	Map<String, Object> verticalDistributionReward(String requestId, List<Map<String, Object>> param, String mqId);
-
-	/**
 	 * 查找余额明细
 	 * 
 	 * @param requestId
@@ -111,6 +99,89 @@ public interface AccountService {
 	Map<String, Object> getAccountDetail(String requestId, String mqId, String accountType, int page, int pageSize);
 
 	/**
+	 * [内部接口]金牌会员分佣，增加冻结余额
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param param
+	 *            参数，每个map中存放着分佣历史表id（distributionListId）、佣金（money）和用户id（mqId）
+	 * @param mqId
+	 *            麦圈用户id
+	 * 
+	 */
+	Map<String, Object> verticalDistributionReward(String requestId, List<Map<String, Object>> param);
+
+	/**
+	 * 余额支付
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param mqId
+	 *            麦圈用户id
+	 * @param money
+	 *            支付金额
+	 * @return
+	 */
+	Map<String, Object> remainingPlay(String requestId, String mqId, long money);
+
+	enum RemainingPlayErrcode {
+		/** 余额扣除成功 */
+		e0("0", "余额扣除成功"),
+		/** 支付金额大于可用余额 */
+		e210601("210601", "支付金额大于可用余额"),
+		/** 支付金额小于等于0 */
+		e210602("210602", "支付金额小于等于0"),
+		/** 余额支付过程中账户发生修改 */
+		e210603("210603", "余额支付过程中账户发生修改"),
+		/** 其它错误 */
+		e210604("210604", "其它错误");
+		private String code;
+		private String msg;
+		private String method;
+
+		private RemainingPlayErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "AccountService.remainingPlay";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+	}
+
+	/**
 	 * 金牌会员分佣错误代码
 	 * 
 	 * @author JSC
@@ -120,7 +191,9 @@ public interface AccountService {
 		/** 分配佣金成功 */
 		e0("0", "分配佣金成功"),
 		/** 分配佣金失败 */
-		e210601("210601", "分配佣金失败");
+		e210601("210601", "分配佣金失败"),
+		/** 分配佣金过程中账户发生修改 */
+		e210602("210602", "分配佣金过程中账户发生修改");
 		/** 代码 */
 		private String code;
 		/** 描述 */
@@ -540,9 +613,11 @@ public interface AccountService {
 		/** 提交申请成功 */
 		e0("0", "提交申请成功"),
 		/** 提现申请金额大于提现余额 */
-		e210601("210601", "提现申请金额大于提现余额"),
+		e210601("210601", "提现申请金额大于可用余额"),
 		/** 提现金额为0 */
 		e210602("210602", "提现金额小于等于0"),
+		/** 提现过程中账户发生修改 */
+		e210603("210603", "提现过程中账户发生修改"),
 		/** 其他错误 */
 		e210604("210604", "其他错误");
 		/** 代码 */
