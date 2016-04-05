@@ -3,7 +3,6 @@ package com.aladdin.account.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringJoiner;
 
 /**
  * 用户资金服务
@@ -99,19 +98,6 @@ public interface AccountService {
 	Map<String, Object> getAccountDetail(String requestId, String mqId, String accountType, int page, int pageSize);
 
 	/**
-	 * [内部接口]金牌会员分佣，增加冻结余额
-	 * 
-	 * @param requestId
-	 *            请求标识
-	 * @param param
-	 *            参数，每个map中存放着分佣历史表id（distributionListId）、佣金（money）和用户id（mqId）
-	 * @param mqId
-	 *            麦圈用户id
-	 * 
-	 */
-	Map<String, Object> verticalDistributionToFrozensum(String requestId, List<Map<String, Object>> param);
-
-	/**
 	 * 余额支付
 	 * 
 	 * @param requestId
@@ -123,6 +109,167 @@ public interface AccountService {
 	 * @return
 	 */
 	Map<String, Object> remainingPlay(String requestId, String mqId, long money);
+
+	/**
+	 * [内部接口]金牌会员分佣，增加冻结余额
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param param
+	 *            参数，每个map中存放着分佣历史表id（distributionListId）、佣金（money）和用户id（mqId）
+	 * 
+	 */
+	Map<String, Object> verticalDistributionToFrozenSum(String requestId, List<Map<String, Object>> param);
+
+	/**
+	 * [内部接口]退货时从冻结余额扣除分佣所得
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param money
+	 *            金额
+	 * @param mqId
+	 *            麦圈用户id
+	 * 
+	 */
+	Map<String, Object> verticalGoodsReturnDeductFrozenSum(String requestId, String mqId, long money);
+
+	/**
+	 * [内部接口]退款时从冻结余额扣除分佣所得
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param param
+	 *            参数，每个map中存放着分佣历史表id（distributionListId）、佣金（money）和用户id（mqId）
+	 * @param mqId
+	 *            麦圈用户id
+	 * 
+	 */
+	Map<String, Object> verticalMoneyReturnDeductFrozenSum(String requestId, List<Map<String, Object>> params);
+
+	/**
+	 * 退款时从冻结余额扣除分佣所得错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum VerticalMoneyReturnDeductFrozenSumErrcode {
+		/** 扣除冻结余额成功 */
+		e0("0", "扣除冻结余额成功"),
+		/** 扣除冻结余额失败 */
+		e210601("210601", "扣除冻结余额失败"),
+		/** 扣除冻结余额过程中账户发生修改 */
+		e210602("210602", "扣除冻结余额过程中账户发生修改");
+		/** 代码 */
+		private String code;
+		/** 描述 */
+		private String msg;
+		/** 方法 */
+		private String method;
+
+		private VerticalMoneyReturnDeductFrozenSumErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "AccountService.verticalMoneyReturnDeductFrozenSum";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+	}
+
+	/**
+	 * 退货时从冻结余额扣除分佣所得错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum VerticalGoodsReturnDeductFrozenSumErrcode {
+		/** 扣除冻结余额成功 */
+		e0("0", "扣除冻结余额成功"),
+		/** 扣除冻结余额失败 */
+		e210601("210601", "扣除冻结余额失败"),
+		/** 扣除冻结余额过程中账户发生修改 */
+		e210602("210602", "扣除冻结余额过程中账户发生修改");
+		/** 代码 */
+		private String code;
+		/** 描述 */
+		private String msg;
+		/** 方法 */
+		private String method;
+
+		private VerticalGoodsReturnDeductFrozenSumErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "AccountService.verticalGoodsReturnDeductFrozenSum";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+	}
 
 	enum RemainingPlayErrcode {
 		/** 余额扣除成功 */
