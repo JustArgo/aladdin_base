@@ -5,6 +5,7 @@ import java.util.List;
 import com.maiquan.aladdin_order.domain.GoodsReturn;
 import com.maiquan.aladdin_order.domain.MoneyReturn;
 import com.maiquan.aladdin_order.domain.Order;
+import com.maiquan.aladdin_order.domain.OrderPayment;
 
 public interface IOrderService {
 	
@@ -126,10 +127,26 @@ public interface IOrderService {
 	int auditReturnMoney(String requestID, Integer moneyReturnID, String auditStatus, Integer uid);
 	
 	/**
-	 * getGoodsReturnByReturnCode
+	 * 根据退货单号  查找退货记录
+	 * @param returnCode
+	 * @param requestID
+	 * @return
 	 */
+	GoodsReturn getGoodsReturnByReturnCode(String returnCode, String requestID);
 	
 	/**
-	 * getMoneyReturnByReturnCode
+	 * 根据退款单号 查找退款记录
+	 * @param returnCode
+	 * @param requestID
+	 * @return
 	 */
+	MoneyReturn getMoneyReturnByReturnCode(String returnCode, String requestID);
+	
+	/**
+	 * 新增订单支付历史  无论支付成功还是失败都要记录
+	 * @param orderPayment
+	 * @param requestID
+	 * @return
+	 */
+	int addOrderPayment(OrderPayment orderPayment, String requestID);
 }
