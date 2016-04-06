@@ -119,20 +119,20 @@ public interface AccountService {
 	 *            参数，每个map中存放着分佣历史表id（distributionListId）、佣金（money）和用户id（mqId）
 	 * 
 	 */
-	Map<String, Object> verticalDistributionToFrozenSum(String requestId, List<Map<String, Object>> param);
+	Map<String, Object> verticalDistributionToFrozenSum(String requestId, List<Map<String, Object>> params);
 
 	/**
 	 * [内部接口]退货时从冻结余额扣除分佣所得
 	 * 
 	 * @param requestId
 	 *            请求标识
-	 * @param money
-	 *            金额
+	 * @param param
+	 *            参数，每个map中存放着分佣历史表id（distributionListId）、佣金（money）和用户id（mqId）
 	 * @param mqId
 	 *            麦圈用户id
 	 * 
 	 */
-	Map<String, Object> verticalGoodsReturnDeductFrozenSum(String requestId, String mqId, long money);
+	Map<String, Object> verticalGoodsReturnDeductFrozenSum(String requestId, List<Map<String, Object>> params);
 
 	/**
 	 * [内部接口]退款时从冻结余额扣除分佣所得
