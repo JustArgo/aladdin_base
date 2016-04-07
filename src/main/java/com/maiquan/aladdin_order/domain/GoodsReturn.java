@@ -3,11 +3,11 @@ package com.maiquan.aladdin_order.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class GoodsReturn implements Serializable{
-
+public class GoodsReturn implements Serializable {
+	
 	private static final long serialVersionUID = 7790498514542785717L;
-
-	private Integer ID;
+	
+    private Integer ID;
 
     private String returnCode;
 
@@ -19,7 +19,11 @@ public class GoodsReturn implements Serializable{
 
     private Integer orderProductID;
 
+    private String productCode;
+
     private Integer productID;
+
+    private Integer productCount;
 
     private Integer uid;
 
@@ -32,7 +36,7 @@ public class GoodsReturn implements Serializable{
     private String returnReason;
 
     private Long applySum;
-    
+
     private String returnDesc;
 
     private Long thirdReturnNo;
@@ -44,8 +48,6 @@ public class GoodsReturn implements Serializable{
     private Date auditTime;
 
     private Date applyTime;
-
-    private Date createTime;
 
     public enum ReturnReason{
 		SEV("七天无理由退货"),DES("收到商品破损"),QUA("商品质量问题"),SJ("少件/漏发"),TYF("退运费"),WAY("未按约定发货"),JMP("假冒品牌"),FP(""),REP("商品需要维修"),WRO("收到商品与描述不符");
@@ -59,7 +61,7 @@ public class GoodsReturn implements Serializable{
 		}
 		
 	}
-    
+
     public Integer getID() {
         return ID;
     }
@@ -108,12 +110,28 @@ public class GoodsReturn implements Serializable{
         this.orderProductID = orderProductID;
     }
 
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode == null ? null : productCode.trim();
+    }
+
     public Integer getProductID() {
         return productID;
     }
 
     public void setProductID(Integer productID) {
         this.productID = productID;
+    }
+
+    public Integer getProductCount() {
+        return productCount;
+    }
+
+    public void setProductCount(Integer productCount) {
+        this.productCount = productCount;
     }
 
     public Integer getUid() {
@@ -149,22 +167,22 @@ public class GoodsReturn implements Serializable{
     }
 
     public String getReturnReason() {
-		return returnReason;
-	}
+        return returnReason;
+    }
 
-	public void setReturnReason(String returnReason) {
-		this.returnReason = returnReason;
-	}
-	
+    public void setReturnReason(String returnReason) {
+        this.returnReason = returnReason == null ? null : returnReason.trim();
+    }
+
     public Long getApplySum() {
-		return applySum;
-	}
+        return applySum;
+    }
 
-	public void setApplySum(Long applySum) {
-		this.applySum = applySum;
-	}
+    public void setApplySum(Long applySum) {
+        this.applySum = applySum;
+    }
 
-	public String getReturnDesc() {
+    public String getReturnDesc() {
         return returnDesc;
     }
 
@@ -212,26 +230,34 @@ public class GoodsReturn implements Serializable{
         this.applyTime = applyTime;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", ID=").append(ID);
+        sb.append(", returnCode=").append(returnCode);
+        sb.append(", supID=").append(supID);
+        sb.append(", mqID=").append(mqID);
+        sb.append(", orderID=").append(orderID);
+        sb.append(", orderProductID=").append(orderProductID);
+        sb.append(", productCode=").append(productCode);
+        sb.append(", productID=").append(productID);
+        sb.append(", productCount=").append(productCount);
+        sb.append(", uid=").append(uid);
+        sb.append(", orderCode=").append(orderCode);
+        sb.append(", status=").append(status);
+        sb.append(", auditStatus=").append(auditStatus);
+        sb.append(", returnReason=").append(returnReason);
+        sb.append(", applySum=").append(applySum);
+        sb.append(", returnDesc=").append(returnDesc);
+        sb.append(", thirdReturnNo=").append(thirdReturnNo);
+        sb.append(", realReturnSum=").append(realReturnSum);
+        sb.append(", returnTime=").append(returnTime);
+        sb.append(", auditTime=").append(auditTime);
+        sb.append(", applyTime=").append(applyTime);
+        sb.append("]");
+        return sb.toString();
     }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-	@Override
-	public String toString() {
-		return "GoodsReturn [ID=" + ID + ", returnCode=" + returnCode
-				+ ", supID=" + supID + ", mqID=" + mqID + ", orderID="
-				+ orderID + ", orderProductID=" + orderProductID
-				+ ", productID=" + productID + ", uid=" + uid + ", orderCode="
-				+ orderCode + ", status=" + status + ", auditStatus="
-				+ auditStatus + ", returnReason=" + returnReason
-				+ ", applySum=" + applySum + ", returnDesc=" + returnDesc
-				+ ", thirdReturnNo=" + thirdReturnNo + ", realReturnSum="
-				+ realReturnSum + ", returnTime=" + returnTime + ", auditTime="
-				+ auditTime + ", applyTime=" + applyTime + ", createTime="
-				+ createTime + "]";
-	}
 }

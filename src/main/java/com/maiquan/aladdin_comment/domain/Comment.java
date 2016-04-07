@@ -1,17 +1,18 @@
 package com.maiquan.aladdin_comment.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Comment implements Serializable{
+public class Comment implements Serializable {
 	
 	private static final long serialVersionUID = -4214809644379257181L;
 
 	public static final String STATUS_OK  = "OK#";
 	public static final String STATUS_DEL = "DEL";
 	
-	private Integer ID;
+    private Integer ID;
 
     private String mqID;
 
@@ -21,15 +22,21 @@ public class Comment implements Serializable{
 
     private Integer orderProdID;
 
+    private Integer speed;
+
+    private Integer descConform;
+
+    private Integer service;
+
     private String commentDesc;
 
-    private List<CommentImg> imgs;
-    
     private String status;
 
     private Date createTime;
 
     private Date delTime;
+    
+    private List<CommentImg> imgs = new ArrayList<CommentImg>();
 
     public Integer getID() {
         return ID;
@@ -71,6 +78,30 @@ public class Comment implements Serializable{
         this.orderProdID = orderProdID;
     }
 
+    public Integer getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Integer speed) {
+        this.speed = speed;
+    }
+
+    public Integer getDescConform() {
+        return descConform;
+    }
+
+    public void setDescConform(Integer descConform) {
+        this.descConform = descConform;
+    }
+
+    public Integer getService() {
+        return service;
+    }
+
+    public void setService(Integer service) {
+        this.service = service;
+    }
+
     public String getCommentDesc() {
         return commentDesc;
     }
@@ -103,7 +134,7 @@ public class Comment implements Serializable{
         this.delTime = delTime;
     }
 
-	public List<CommentImg> getImgs() {
+    public List<CommentImg> getImgs() {
 		return imgs;
 	}
 
@@ -115,9 +146,10 @@ public class Comment implements Serializable{
 	public String toString() {
 		return "Comment [ID=" + ID + ", mqID=" + mqID + ", orderID=" + orderID
 				+ ", productID=" + productID + ", orderProdID=" + orderProdID
-				+ ", commentDesc=" + commentDesc + ", imgs=" + imgs
+				+ ", speed=" + speed + ", descConform=" + descConform
+				+ ", service=" + service + ", commentDesc=" + commentDesc
 				+ ", status=" + status + ", createTime=" + createTime
-				+ ", delTime=" + delTime + "]";
+				+ ", delTime=" + delTime + ", imgs=" + imgs + "]";
 	}
 	
 	
