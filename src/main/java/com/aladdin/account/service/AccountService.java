@@ -1,6 +1,7 @@
 package com.aladdin.account.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -80,19 +81,6 @@ public interface AccountService {
 	Map<String, Object> applyWithDraw(String requestId, long money, String mqId);
 
 	/**
-	 * 分配佣金
-	 * 
-	 * @param requestId
-	 *            请求标识
-	 * @param money
-	 *            佣金
-	 * @param mqId
-	 *            麦圈用户id
-	 * 
-	 */
-	Map<String, Object> distributionReward(String requestId, long money, String mqId);
-
-	/**
 	 * 查找余额明细
 	 * 
 	 * @param requestId
@@ -110,27 +98,37 @@ public interface AccountService {
 	Map<String, Object> getAccountDetail(String requestId, String mqId, String accountType, int page, int pageSize);
 
 	/**
-	 * 分配佣金错误代码
+	 * 余额支付
 	 * 
-	 * @author JSC
-	 *
+	 * @param requestId
+	 *            请求标识
+	 * @param mqId
+	 *            麦圈用户id
+	 * @param money
+	 *            支付金额
+	 * @return
 	 */
-	enum DistributionRewardErrcode {
-		/** 分配佣金成功 */
-		e0("0", "分配佣金成功"),
-		/** 分配佣金失败 */
-		e210601("210601", "分配佣金失败");
-		/** 代码 */
+	Map<String, Object> remainingPlay(String requestId, String mqId, long money);
+
+	enum RemainingPlayErrcode {
+		/** 余额扣除成功 */
+		e0("0", "余额扣除成功"),
+		/** 支付金额大于可用余额 */
+		e210601("210601", "支付金额大于可用余额"),
+		/** 支付金额小于等于0 */
+		e210602("210602", "支付金额小于等于0"),
+		/** 余额支付过程中账户发生修改 */
+		e210603("210603", "余额支付过程中账户发生修改"),
+		/** 其它错误 */
+		e210604("210604", "其它错误");
 		private String code;
-		/** 描述 */
 		private String msg;
-		/** 方法 */
 		private String method;
 
-		private DistributionRewardErrcode(String code, String msg) {
+		private RemainingPlayErrcode(String code, String msg) {
 			this.code = code;
 			this.msg = msg;
-			this.method = "AccountService.distributionReward";
+			this.method = "AccountService.remainingPlay";
 		}
 
 		public String getCode() {
@@ -539,9 +537,11 @@ public interface AccountService {
 		/** 提交申请成功 */
 		e0("0", "提交申请成功"),
 		/** 提现申请金额大于提现余额 */
-		e210601("210601", "提现申请金额大于提现余额"),
+		e210601("210601", "提现申请金额大于可用余额"),
 		/** 提现金额为0 */
 		e210602("210602", "提现金额小于等于0"),
+		/** 提现过程中账户发生修改 */
+		e210603("210603", "提现过程中账户发生修改"),
 		/** 其他错误 */
 		e210604("210604", "其他错误");
 		/** 代码 */

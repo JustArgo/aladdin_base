@@ -1,6 +1,7 @@
 package com.aladdin.vertical.distribution.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,6 +23,28 @@ public interface VerticalDistributionService {
 	 * @return
 	 */
 	Map<String, Object> queryDistributionSetting(String requestId, String recordId, String mqId);
+
+	/**
+	 * 根据用户id查找用户的等级编号
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param distributionUserId
+	 *            麦圈用户id
+	 * @return
+	 */
+	Map<String, Object> findLevelnoBydistributionUserId(String requestId, String distributionUserId);
+
+	/**
+	 * 根据等级编号集合查找用户和所有上线id
+	 * 
+	 * @param requestId
+	 *            请求标识
+	 * @param levelNos
+	 *            等级编号集合
+	 * @return
+	 */
+	Map<String, Object> findDistributionUserIdsByLeveNos(String requestId, List<String> levelNos);
 
 	/**
 	 * 查询我的销售
@@ -94,6 +117,65 @@ public interface VerticalDistributionService {
 	 */
 	Map<String, Object> findMemberCount(String requestId, String mqId);
 
+	/**
+	 * 根据等级编号查找用户和所有上线id错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum FindDistributionUserIdsByLeveNoErrcode {
+		e0("0", "查询成功"), e210601("210601", "查询失败");
+		private String code;
+		private String msg;
+		private String method;
+
+		private FindDistributionUserIdsByLeveNoErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "VerticalDistributionService.findDistributionUserIdsByLeveNo";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 * 
+		 * @return
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+	}
+
+	/**
+	 * 查找第一层、第二层和第三层以下会员数量错误代码
+	 */
 	enum FindMemberCountErrcode {
 		e0("0", "查询成功"), e210601("210601", "查询失败");
 		private String code;
@@ -198,7 +280,65 @@ public interface VerticalDistributionService {
 			map.put("method", method);
 			return map;
 		}
+	}
 
+	/**
+	 * 根据用户id查找用户的等级编号错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum FindLevelnoBydistributionUserIdErrcode {
+		/** 查询成功 */
+		e0("0", "查询成功"),
+		/** 查询失败 */
+		e210601("210601", "查询失败");
+		private String code;
+		private String msg;
+		private String method;
+
+		private FindLevelnoBydistributionUserIdErrcode(String code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "VerticalDistributionService.findLevelnoBydistributionUserId";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 * 
+		 * @return
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
 	}
 
 	/**
@@ -255,9 +395,7 @@ public interface VerticalDistributionService {
 			map.put("method", method);
 			return map;
 		}
-
 	}
-
 
 	/**
 	 * 查询上下级佣金设置接口错误代码
