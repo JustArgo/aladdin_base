@@ -98,7 +98,7 @@ public interface IOrderService {
 	 * 申请退货
 	 * @return 返回退货记录的id
 	 */
-	GoodsReturn applyReturnGoods(String mqID, String orderCode, Integer orderProductID, Long refundFee, String returnReason, String returnDesc, String requestID);
+	GoodsReturn applyReturnGoods(String mqID, String orderCode, Integer orderProductID, Long refundFee, String returnReason, String returnDesc, String[] imgs, String requestID);
 	
 	/**
 	 * 申请退款

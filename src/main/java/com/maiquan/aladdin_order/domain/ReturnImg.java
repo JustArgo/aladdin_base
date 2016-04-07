@@ -11,13 +11,13 @@ public class ReturnImg implements Serializable{
 
     private Integer returnID;
 
-    private Integer returnType;
+    private String returnType;
 
     private String status;
 
     private String imgPath;
 
-    private Integer mqID;
+    private String mqID;
 
     private Integer sortOrder;
 
@@ -37,21 +37,21 @@ public class ReturnImg implements Serializable{
 
     public void setReturnID(Integer returnID) {
         this.returnID = returnID;
-    }
+    } 
 
-    public Integer getReturnType() {
-        return returnType;
-    }
+    public String getReturnType() {
+		return returnType;
+	}
 
-    public void setReturnType(Integer returnType) {
-        this.returnType = returnType;
-    }
-
+	public void setReturnType(String returnType) {
+		this.returnType = returnType;
+	}
+	
     public String getStatus() {
         return status;
     }
-
-    public void setStatus(String status) {
+	
+	public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
     }
 
@@ -63,15 +63,15 @@ public class ReturnImg implements Serializable{
         this.imgPath = imgPath == null ? null : imgPath.trim();
     }
 
-    public Integer getMqID() {
-        return mqID;
-    }
+    public String getMqID() {
+		return mqID;
+	}
 
-    public void setMqID(Integer mqID) {
-        this.mqID = mqID;
-    }
+	public void setMqID(String mqID) {
+		this.mqID = mqID;
+	}
 
-    public Integer getSortOrder() {
+	public Integer getSortOrder() {
         return sortOrder;
     }
 
