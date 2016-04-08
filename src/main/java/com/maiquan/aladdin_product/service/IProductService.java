@@ -120,6 +120,17 @@ public interface IProductService {
 	List<Map> selectByKeyWordWithPagination(String keyWord, Integer startIndex, Integer pageSize, String orderBy, String requestID);
 
 	/**
+	 * 高级条件查询 + 分页
+	 * @param queryCondition
+	 * @param page
+	 * @param pageSize
+	 * @param orderCondition
+	 * @param requestID
+	 * @return
+	 */
+	List<Map> selectByConditionWithPaginition(List<Map<String,Object>> queryCondition, Integer page, Integer pageSize, List<Map<String,String>> orderCondition, String requestID);
+	
+	/**
 	 * 增加商品图片 
 	 * @param productImg 
 	 * @param requestID
