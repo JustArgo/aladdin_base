@@ -1,4 +1,4 @@
-package com.aladdin.vertical.distribution.service;
+package com.mi360.aladdin.vertical.distribution.service;
 
 import java.util.HashMap;
 import java.util.List;

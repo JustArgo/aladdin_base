@@ -1,4 +1,4 @@
-package com.aladdin.user.service;
+package com.mi360.aladdin.user.service;
 
 import java.util.HashMap;
 import java.util.List;

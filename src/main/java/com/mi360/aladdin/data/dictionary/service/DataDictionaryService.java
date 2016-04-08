@@ -1,4 +1,4 @@
-package com.aladdin.data.dictionary.service;
+package com.mi360.aladdin.data.dictionary.service;
 
 import java.util.HashMap;
 import java.util.Map;

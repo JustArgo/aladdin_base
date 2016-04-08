@@ -1,4 +1,4 @@
-package com.aladdin.product.category.service;
+package com.mi360.aladdin.product.category.service;
 
 import java.util.HashMap;
 import java.util.Map;

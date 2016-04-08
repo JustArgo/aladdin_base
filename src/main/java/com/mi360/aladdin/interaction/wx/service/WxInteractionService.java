@@ -1,4 +1,4 @@
-package com.aladdin.interaction.wx.service;
+package com.mi360.aladdin.interaction.wx.service;
 
 import java.util.Map;
 

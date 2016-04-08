@@ -1,4 +1,4 @@
-package com.aladdin.vertical.settlement.service;
+package com.mi360.aladdin.vertical.settlement.service;
 
 import java.util.HashMap;
 import java.util.Map;
