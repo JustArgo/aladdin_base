@@ -39,7 +39,7 @@ public interface IProductService {
 	 * @param requestID
 	 * @return
 	 */
-	List<Product> getProductListByCategoryID(Integer categoryID, String requestID);
+	List<Product> getProductListByCategoryID(Integer categoryID, List<Map<String,String>> orderCondition, Integer page, Integer pageSize, String requestID);
 	
 	/**
 	 * 更新商品
