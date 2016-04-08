@@ -64,27 +64,27 @@ public interface UserService {
 
 	enum FindByMqIdErrcode {
 		/** 查询成功 */
-		e0("0", "查询成功"),
+		e0(0, "查询成功"),
 		/** 查询失败 */
-		e210601("210601", "查询失败");
+		e210601(210601, "查询失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private FindByMqIdErrcode(String code, String msg) {
+		private FindByMqIdErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "UserService.findByMqId";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -127,26 +127,26 @@ public interface UserService {
 	 */
 	enum FindByOpenIdErrcode {
 		/** 查询成功 */
-		e0("0", "查询成功"),
+		e0(0, "查询成功"),
 		/** 查询失败 */
-		e210601("210601", "查询失败");
+		e210601(210601, "查询失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		private String method;
 
-		private FindByOpenIdErrcode(String code, String msg) {
+		private FindByOpenIdErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "UserService.findByOpenId";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -185,28 +185,28 @@ public interface UserService {
 	 */
 	enum CreateWxErrcode {
 		/** 用户注册成功 */
-		e0("0", "用户注册成功"),
+		e0(0, "用户注册成功"),
 		/** 用户注册失败：用户已经存在，不可以重复注册 */
-		e210303("210303", "用户注册失败：用户已经存在，不可以重复注册"),
+		e210303(210303, "用户注册失败：用户已经存在，不可以重复注册"),
 		/** 用户注册失败：其他原因 */
-		e210403("210403", "用户注册失败：其他原因");
+		e210403(210403, "用户注册失败：其他原因");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		private String method;
 
-		private CreateWxErrcode(String code, String msg) {
+		private CreateWxErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "UserService.createWx";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -248,26 +248,26 @@ public interface UserService {
 	 */
 	enum ExistsUserErrcode {
 		/** 查询成功 */
-		e0("0", "查询成功"),
+		e0(0, "查询成功"),
 		/** 查询失败 */
-		e210601("210601", "查询失败");
+		e210601(210601, "查询失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		private String method;
 
-		private ExistsUserErrcode(String code, String msg) {
+		private ExistsUserErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "UserService.existsUser";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 

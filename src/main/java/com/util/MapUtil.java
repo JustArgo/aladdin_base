@@ -219,12 +219,21 @@ public class MapUtil {
 		}
 
 		/**
+		 * 获取错误代码
+		 * 
+		 * @return
+		 */
+		public int getErrcode() {
+			return getInteger("errcode");
+		}
+
+		/**
 		 * 获取错误描述
 		 * 
 		 * @return
 		 */
 		public String errorString() {
-			return "{method:"+getString("method")+",errcode:" + getString("errcode") + ",errmsg:" + getString("errmsg") + "}";
+			return "{method:" + getString("method") + ",errcode:" + getString("errcode") + ",errmsg:" + getString("errmsg") + "}";
 		}
 	}
 }
