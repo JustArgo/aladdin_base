@@ -7,9 +7,9 @@ public class App implements Serializable{
 	private static final long serialVersionUID = -6506436726305068048L;
 	
 	private String appId;
-	private String timestamp;
+	private String timeStamp;
 	private String nonce;
-	private String requestId;
+	private String requestID;
 	private String signature;
 	
 	public String getAppId() {
@@ -18,11 +18,17 @@ public class App implements Serializable{
 	public void setAppId(String appId) {
 		this.appId = appId;
 	}
-	public String getTimestamp() {
-		return timestamp;
+	public String getTimeStamp() {
+		return timeStamp;
 	}
-	public void setTimestamp(String timestamp) {
-		this.timestamp = timestamp;
+	public void setTimeStamp(String timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+	public String getRequestID() {
+		return requestID;
+	}
+	public void setRequestID(String requestID) {
+		this.requestID = requestID;
 	}
 	public String getNonce() {
 		return nonce;
@@ -30,12 +36,7 @@ public class App implements Serializable{
 	public void setNonce(String nonce) {
 		this.nonce = nonce;
 	}
-	public String getRequestId() {
-		return requestId;
-	}
-	public void setRequestId(String requestId) {
-		this.requestId = requestId;
-	}
+	
 	public String getSignature() {
 		return signature;
 	}
