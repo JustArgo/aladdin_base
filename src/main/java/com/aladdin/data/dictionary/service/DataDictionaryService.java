@@ -101,27 +101,27 @@ public interface DataDictionaryService {
 	 */
 	enum GetBaseConfigByConfigKeyErrcode {
 		/** 清除缓存成功 */
-		e0("0", "查找配置Key对应配置成功"),
+		e0(0, "查找配置Key对应配置成功"),
 		/** 清除缓存失败 */
-		e210601("210601", "查找配置Key对应配置失败");
+		e210601(210601, "查找配置Key对应配置失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private GetBaseConfigByConfigKeyErrcode(String code, String msg) {
+		private GetBaseConfigByConfigKeyErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "DataDictionaryService.getBaseConfigByConfigKey";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -163,27 +163,27 @@ public interface DataDictionaryService {
 	 */
 	enum FlushErrcode {
 		/** 清除缓存成功 */
-		e0("0", "清除缓存成功"),
+		e0(0, "清除缓存成功"),
 		/** 清除缓存失败 */
-		e210601("210601", "清除缓存失败");
+		e210601(210601, "清除缓存失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private FlushErrcode(String code, String msg) {
+		private FlushErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "DataDictionaryService.flush";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -216,27 +216,27 @@ public interface DataDictionaryService {
 	 */
 	enum GetBaseConfigErrcode {
 		/** 获取系统配置成功 */
-		e0("0", "获取系统配置成功"),
+		e0(0, "获取系统配置成功"),
 		/** 获取系统配置失败 */
-		e210601("210601", "获取系统配置失败");
+		e210601(210601, "获取系统配置失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private GetBaseConfigErrcode(String code, String msg) {
+		private GetBaseConfigErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "DataDictionaryService.getBaseConfig";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 

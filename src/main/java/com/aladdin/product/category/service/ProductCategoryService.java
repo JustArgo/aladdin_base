@@ -37,24 +37,24 @@ public interface ProductCategoryService {
 	 */
 	public enum FindListErrcode {
 		/** 获取商品分类列表成功 */
-		e0("0", "获取商品分类列表成功"),
+		e0(0, "获取商品分类列表成功"),
 		/** 获取商品分类列表失败 */
-		e210601("210601", "获取商品分类列表失败");
+		e210601(210601, "获取商品分类列表失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 
-		private FindListErrcode(String code, String msg) {
+		private FindListErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -87,24 +87,24 @@ public interface ProductCategoryService {
 	 */
 	public enum FlushErrcode {
 		/** 清除缓存成功 */
-		e0("0", "清除缓存成功"),
+		e0(0, "清除缓存成功"),
 		/** 清除缓存失败 */
-		e210601("210601", "清除缓存失败");
+		e210601(210601, "清除缓存失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 
-		private FlushErrcode(String code, String msg) {
+		private FlushErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 

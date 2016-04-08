@@ -112,30 +112,30 @@ public interface AccountService {
 
 	enum RemainingPlayErrcode {
 		/** 余额扣除成功 */
-		e0("0", "余额扣除成功"),
+		e0(0, "余额扣除成功"),
 		/** 支付金额大于可用余额 */
-		e210601("210601", "支付金额大于可用余额"),
+		e210601(210601, "支付金额大于可用余额"),
 		/** 支付金额小于等于0 */
-		e210602("210602", "支付金额小于等于0"),
+		e210602(210602, "支付金额小于等于0"),
 		/** 余额支付过程中账户发生修改 */
-		e210603("210603", "余额支付过程中账户发生修改"),
+		e210603(210603, "余额支付过程中账户发生修改"),
 		/** 其它错误 */
-		e210604("210604", "其它错误");
-		private String code;
+		e210604(210604, "其它错误");
+		private int code;
 		private String msg;
 		private String method;
 
-		private RemainingPlayErrcode(String code, String msg) {
+		private RemainingPlayErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "AccountService.remainingPlay";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -175,27 +175,27 @@ public interface AccountService {
 	 */
 	enum GetAccountDetailErrcode {
 		/** 获取余额明细成功 */
-		e0("0", "获取余额明细成功"),
+		e0(0, "获取余额明细成功"),
 		/** 获取余额明细失败 */
-		e210601("210601", "获取余额明细失败");
+		e210601(210601, "获取余额明细失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private GetAccountDetailErrcode(String code, String msg) {
+		private GetAccountDetailErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "AccountService.getAccountDetail";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -235,27 +235,27 @@ public interface AccountService {
 	 */
 	enum GetTotalWithdrawErrcode {
 		/** 获取用户已提现金额成功 */
-		e0("0", "获取用户冻结余额成功"),
+		e0(0, "获取用户冻结余额成功"),
 		/** 获取用户已提现金额失败 */
-		e210601("210601", "获取用户冻结余额失败");
+		e210601(210601, "获取用户冻结余额失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private GetTotalWithdrawErrcode(String code, String msg) {
+		private GetTotalWithdrawErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "AccountService.getTotalWithdraw";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -295,27 +295,27 @@ public interface AccountService {
 	 */
 	enum GetTotalEaringErrcode {
 		/** 获取用户累计收入成功 */
-		e0("0", "获取用户冻结余额成功"),
+		e0(0, "获取用户冻结余额成功"),
 		/** 获取用户累计收入失败 */
-		e210601("210601", "获取用户冻结余额失败");
+		e210601(210601, "获取用户冻结余额失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private GetTotalEaringErrcode(String code, String msg) {
+		private GetTotalEaringErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "AccountService.getTotalEaring";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -355,27 +355,27 @@ public interface AccountService {
 	 */
 	enum GetFrozenSumErrcode {
 		/** 获取用户冻结余额成功 */
-		e0("0", "获取用户冻结余额成功"),
+		e0(0, "获取用户冻结余额成功"),
 		/** 获取用户冻结余额失败 */
-		e210601("210601", "获取用户冻结余额失败");
+		e210601(210601, "获取用户冻结余额失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private GetFrozenSumErrcode(String code, String msg) {
+		private GetFrozenSumErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "AccountService.getFrozenSum";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -415,27 +415,27 @@ public interface AccountService {
 	 */
 	enum GetRemainingSumErrcode {
 		/** 获取用户可用余额成功 */
-		e0("0", "获取用户可用余额成功"),
+		e0(0, "获取用户可用余额成功"),
 		/** 获取用户可用余额失败 */
-		e210601("210601", "获取用户可用余额失败");
+		e210601(210601, "获取用户可用余额失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private GetRemainingSumErrcode(String code, String msg) {
+		private GetRemainingSumErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "AccountService.getRemainingSum";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -475,27 +475,27 @@ public interface AccountService {
 	 */
 	enum GetAccountInfoErrcode {
 		/** 获取用户资金信息成功 */
-		e0("0", "获取用户资金信息成功"),
+		e0(0, "获取用户资金信息成功"),
 		/** 获取用户资金信息失败 */
-		e210601("210601", "获取用户资金信息失败");
+		e210601(210601, "获取用户资金信息失败");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private GetAccountInfoErrcode(String code, String msg) {
+		private GetAccountInfoErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "AccountService.getAccountInfo";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
@@ -535,33 +535,33 @@ public interface AccountService {
 	 */
 	enum ApplyWithDrawErrcode {
 		/** 提交申请成功 */
-		e0("0", "提交申请成功"),
+		e0(0, "提交申请成功"),
 		/** 提现申请金额大于提现余额 */
-		e210601("210601", "提现申请金额大于可用余额"),
+		e210601(210601, "提现申请金额大于可用余额"),
 		/** 提现金额为0 */
-		e210602("210602", "提现金额小于等于0"),
+		e210602(210602, "提现金额小于等于0"),
 		/** 提现过程中账户发生修改 */
-		e210603("210603", "提现过程中账户发生修改"),
+		e210603(210603, "提现过程中账户发生修改"),
 		/** 其他错误 */
-		e210604("210604", "其他错误");
+		e210604(210604, "其他错误");
 		/** 代码 */
-		private String code;
+		private int code;
 		/** 描述 */
 		private String msg;
 		/** 方法 */
 		private String method;
 
-		private ApplyWithDrawErrcode(String code, String msg) {
+		private ApplyWithDrawErrcode(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 			this.method = "AccountService.applyWithDraw";
 		}
 
-		public String getCode() {
+		public int getCode() {
 			return code;
 		}
 
-		public void setCode(String code) {
+		public void setCode(int code) {
 			this.code = code;
 		}
 
