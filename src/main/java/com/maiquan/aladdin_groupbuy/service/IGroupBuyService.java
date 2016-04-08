@@ -94,4 +94,15 @@ public interface IGroupBuyService {
 	 * 根据拼团id 查找已参团用户信息  list的第一个为团长
 	 */
 	List<Map<String,Object>> getPinUserList(Integer pinInfoID, String requestID); 
+	
+	/**
+	 * 
+	 * @param queryCondition  where条件 map包含 3个key  column operator value
+	 * @param page		分页条件	
+	 * @param pageSize  分页条件
+	 * @param orderCondition 排序条件 
+	 * @param requestID
+	 * @return
+	 */
+	List<PinInfo> selectByConditionWithPagination(List<Map<String,Object>> queryCondition, Integer page, Integer pageSize, List<Map<String,String>> orderCondition, String requestID);
 }
