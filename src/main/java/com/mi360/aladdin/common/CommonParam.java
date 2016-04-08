@@ -21,6 +21,10 @@ public class CommonParam implements java.io.Serializable{
 	public void setBody(Map<String, Object> body) {
 		this.body = body;
 	}
+	@Override
+	public String toString() {
+		return "CommonParam [app=" + app + ", body=" + body + "]";
+	}
 	
 	
 }

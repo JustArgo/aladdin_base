@@ -43,6 +43,12 @@ public class App implements Serializable{
 	public void setSignature(String signature) {
 		this.signature = signature;
 	}
+	@Override
+	public String toString() {
+		return "App [appId=" + appId + ", timeStamp=" + timeStamp + ", nonce="
+				+ nonce + ", requestID=" + requestID + ", signature="
+				+ signature + "]";
+	}
 	
 	
 	
