@@ -1,6 +1,7 @@
 package com.maiquan.aladdin_order.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.maiquan.aladdin_order.domain.GoodsReturn;
 import com.maiquan.aladdin_order.domain.MoneyReturn;
@@ -149,4 +150,12 @@ public interface IOrderService {
 	 * @return
 	 */
 	int addOrderPayment(OrderPayment orderPayment, String requestID);
+	
+	/**
+	 * 查找出指定用户的 所有子订单
+	 * @param mqID
+	 * @param requestID
+	 * @return
+	 */
+	List<Map<String,Object>> getChildOrderListByMqID(String mqID, String requestID);
 }

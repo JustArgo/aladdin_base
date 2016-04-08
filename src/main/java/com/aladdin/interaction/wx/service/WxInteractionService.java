@@ -107,4 +107,10 @@ public interface WxInteractionService {
 	 */
 	Map<String,String> getRefundResult(String requestId, Map<String,String> parameters);
 	
+	/**
+	 * 对参数进行签名
+	 * @param parameters
+	 * @return 返回签名
+	 */
+	String createSign(Map<String,String> parameters);
 }
