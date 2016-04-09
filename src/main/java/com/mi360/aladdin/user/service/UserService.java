@@ -26,8 +26,7 @@ public interface UserService {
 	 *            用户的微信昵称
 	 * @return
 	 */
-	Map<String, Object> createWx(String requestId, String upDistributionUserId, String wxOpenId, String wxUnionId,
-			String wxNickname);
+	Map<String, Object> createWx(String requestId, String upDistributionUserId, String wxOpenId, String wxUnionId, String wxNickname);
 
 	/**
 	 * 判断用户是否存在
@@ -61,6 +60,71 @@ public interface UserService {
 	 * @return
 	 */
 	Map<String, Object> findByMqId(String requestId, List<String> mqIds);
+
+	/**
+	 * 获取用户信息
+	 * 
+	 * @param requestId
+	 * @param mqId
+	 * @return
+	 */
+	Map<String, Object> findUserInfo(String requestId, String mqId);
+
+	enum FindUserInfoErrcode {
+		/** 查询成功 */
+		e0(0, "查询成功"),
+		/** 查询失败 */
+		e210601(210601, "查询失败");
+		/** 代码 */
+		private int code;
+		/** 描述 */
+		private String msg;
+		/** 方法 */
+		private String method;
+
+		private FindUserInfoErrcode(int code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "UserService.findUserInfo";
+		}
+
+		public int getCode() {
+			return code;
+		}
+
+		public void setCode(int code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 * 
+		 * @return
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+	}
 
 	enum FindByMqIdErrcode {
 		/** 查询成功 */
@@ -189,7 +253,9 @@ public interface UserService {
 		/** 用户注册失败：用户已经存在，不可以重复注册 */
 		e210303(210303, "用户注册失败：用户已经存在，不可以重复注册"),
 		/** 用户注册失败：其他原因 */
-		e210403(210403, "用户注册失败：其他原因");
+		e210304(210304, "用户注册失败：其他原因"),
+		/** 获取微信用户基本信息失败 */
+		e210305(210305, "获取微信用户基本信息失败");
 		/** 代码 */
 		private int code;
 		/** 描述 */

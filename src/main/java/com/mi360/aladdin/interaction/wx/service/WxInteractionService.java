@@ -59,6 +59,8 @@ public interface WxInteractionService {
 	 * @return url
 	 */
 	String oauth2buildAuthorizationUrl(String requestId, String scope, String state);
+	
+	WxMpUser userInfo(String requestId,String openId) throws Exception;
 
 	/**
 	 * 统一下单
@@ -87,18 +89,9 @@ public interface WxInteractionService {
 	 * @return
 	 */
 	WxMpPayResult getPayResult(String requestId, String outTradeNo);
-
+	
 	/**
 	 * 申请退款
-	 * @param requestId
-	 * @param parameters
-	 * 		 <p>包含以下参数</br>
-	 * 		
-	  		   (1) out_trade_no(统一下单时传给微信的参数) 或  transaction_id(买家支付时 微信返回的id)</br>
-	  		   (2) out_refund_no 退款单号</br>
-	  		   (3) total_fee 统一下单时的total_fee(单位: 分)</br>
-	  		   (4) refund_fee 要退款的金额(单位: 分)</br>
-	  		   </p> 
 	 */
 	Map<String,String> refund(String requestId, Map<String,String> parameters);
 	
@@ -106,7 +99,7 @@ public interface WxInteractionService {
 	 * 查询退款详情
 	 */
 	Map<String,String> getRefundResult(String requestId, Map<String,String> parameters);
-	
+
 	/**
 	 * 对参数进行签名
 	 * @param parameters
