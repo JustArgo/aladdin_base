@@ -76,6 +76,71 @@ public interface VerticalDistributionService {
 	Map<String, Object> findMemberCount(String requestId, String mqId);
 
 	/**
+	 * 查找所有会员数量
+	 * 
+	 * @param requestId
+	 * @param mqId
+	 * @return
+	 */
+	Map<String, Object> findMemberCountAll(String requestId, String mqId);
+
+	/**
+	 * 查找所有会员数量错误代码
+	 * 
+	 * @author JSC
+	 *
+	 */
+	enum FindMemberCountAllErrcode {
+		e0(0, "查询成功"), e210601(210601, "查询失败");
+		private int code;
+		private String msg;
+		private String method;
+
+		private FindMemberCountAllErrcode(int code, String msg) {
+			this.code = code;
+			this.msg = msg;
+			this.method = "VerticalDistributionService.findMemberCountAll";
+		}
+
+		public int getCode() {
+			return code;
+		}
+
+		public void setCode(int code) {
+			this.code = code;
+		}
+
+		public String getMsg() {
+			return msg;
+		}
+
+		public void setMsg(String msg) {
+			this.msg = msg;
+		}
+
+		public String getMethod() {
+			return method;
+		}
+
+		public void setMethod(String method) {
+			this.method = method;
+		}
+
+		/**
+		 * 返回map形式
+		 * 
+		 * @return
+		 */
+		public Map<String, Object> toMap() {
+			Map<String, Object> map = new HashMap<>();
+			map.put("errcode", code);
+			map.put("errmsg", msg);
+			map.put("method", method);
+			return map;
+		}
+	}
+
+	/**
 	 * 根据等级编号查找用户和所有上线id错误代码
 	 * 
 	 * @author JSC
